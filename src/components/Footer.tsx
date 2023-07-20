@@ -3,23 +3,24 @@ import { FaRegCopyright, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="flex justify-between  px-[10rem] py-[3rem]">
-        <div className="copyright flex justify-center item-center font-bold">
-          <p>
-            <FaRegCopyright />
-          </p>
-          <p>2023 EazyEat</p>
+    <div className="bg-gradient-to-t from-[#D6D3D1]/90 w-screen">
+      <footer className="flex justify-between  px-[160px] py-[48px]">
+        <div className="copyright flex justify-center item-center gap-2">
+          <div>
+            <FaRegCopyright className="font-black text-2xl text-white drop-shadow-md" />
+          </div>
+
+          <p className="font-black text-lg text-white drop-shadow-md">2023 EazyEat</p>
         </div>
-        <div className="social flex">
+        <div className="social flex gap-6">
           <a href="#">
-            <FaFacebook className="text-xl text-orange-300" />
+            <FaFacebook className="font-black text-2xl text-white hover:text-[#FF8C32] drop-shadow-md" />
           </a>
           <a href="#">
-            <FaInstagram className="text-xl text-orange-300" />
+            <FaInstagram className="font-black text-2xl text-white hover:text-[#FF8C32] drop-shadow-md" />
           </a>
           <a href="#">
-            <FaTwitter className="text-xl text-orange-300" />
+            <FaTwitter className="font-black text-2xl text-white hover:text-[#FF8C32] drop-shadow-md" />
           </a>
         </div>
       </footer>
