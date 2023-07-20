@@ -16,7 +16,7 @@ const Register = () => {
     //   } 
 
     return (
-        <div className='bg-center bg-fixed bg-cover bg-homeBg'>
+        <div className='bg-center bg-fixed bg-cover bg-registerBg'>
             <Navbar />
                     <div>
                       <header>
@@ -24,15 +24,23 @@ const Register = () => {
                         <img>Avatar</img>
                       </header>
                       <form>
-                        <label></label>
-                        <label></label>
-                        <label></label>
-                        <label></label>
-                        <label></label>
+                        <label>Display name</label>
+                        <input />
+                        <label>Username</label>
+                        <input type='' required />
+                        <label>Password</label>
+                        <input type='password' required/>
+                        <label>Healthy concern</label>
+                        <input />
+                        <label>Food allergen</label>
+                        <input />
                         <button type='button' value='submit' className='box-border h-[50px] w-[150px] text-white text-l hover:text-xl font-bold p-[2px] m-10 rounded-[50px]
                         bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
                       hover:from-[#c1f31f] hover:to-[#4ccf20]'>Register</button>
-                      <p>Already have an account? Login</p>
+                      <div className='flex-inline'>
+                        <p>Already have an account? </p> 
+                        <button className='text-black'>Login</button>
+                      </div>
                     </form>
                     </div>
             <Footer />

@@ -8,10 +8,6 @@ export default {
         searchBg: "url('src/assets/img/img-bg-search.jpg')",
         registerBg: "url('src/assets/img/img-bg-register.jpg')"
       },
-      fontFamily: {
-        sage: ['sage'],
-        america: ['america']
-     },
     },
   },
   plugins: [],
