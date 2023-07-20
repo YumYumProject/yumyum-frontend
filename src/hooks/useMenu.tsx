@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { MenuDto } from '../types/types'
 import { host } from '../constant'
+import { IContent } from '../types/types'
 
-const useMenu = (id: string) => {
-  const [menu, setMenu] = useState<MenuDto | null>(null)
+const useMenu = (_id: string) => {
+  const [menu, setMenu] = useState<IContent | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState(null)
 
@@ -11,12 +11,12 @@ const useMenu = (id: string) => {
     const fetchData = async () => {
       setIsLoading(true)
       try {
-        const res = await fetch(`${host}/menu/${id}`)
+        const res = await fetch(`${host}/menu/${_id}`)
         const data = await res.json()
 
         setMenu(data)
-      } catch (err: any) {
-        setError(err.message)
+      } catch (err) {
+        setError(error)
       } finally {
         setIsLoading(false)
       }

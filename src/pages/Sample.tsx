@@ -89,137 +89,137 @@ const Sample = () => {
               </form>
             </div>
           </div>
-          <div className="menu-list grid grid-cols-4 justify-items box-content h-auto w-[1120px] gap-x-10 gap-y-16 p-6 border-2 border-[#D6D3D1]/50 bg-gradient-to-r from-[#D6D3D1]/80 to-[#D6D3D1]/60 rounded-3xl">
+          <div className="menu-list grid grid-cols-4 justify-items-center box-content h-auto w-[1120px] gap-x-10 gap-y-16 p-6 border-2 border-[#D6D3D1]/50 bg-gradient-to-r from-[#D6D3D1]/80 to-[#D6D3D1]/60 rounded-3xl">
             <div className="box-content w-[236px] h-[267px] flex flex-col justify-end items-center">
               <a href="#">
                 <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-4 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
                   <div className="absolute bottom-16 box-content w-[200px] h-[200px] rounded-2xl overflow-auto items-center drop-shadow-xl">
                     <img className="w-full h-full" src="src/assets/img/img-menu.jpg" alt="img-menu" />
                   </div>
-
-                  <p className="font-bold text-[#393939] text-xl">yyy</p>
-
-                  <p className="flex font-bold text-[#FFE05D] drop-shadow-md">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="font-bold text-[#454545] text-lg">ข้าวไข่ข้น</p>
+                    <p className="flex font-bold text-[#FFE05D] drop-shadow-md">
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                    </p>
+                  </div>
                 </div>
               </a>
             </div>
             <div className="box-content w-[236px] h-[267px] flex flex-col justify-end items-center">
               <a href="#">
-                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-2 border-dashed hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
+                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-4 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
                   <div className="absolute bottom-16 box-content w-[200px] h-[200px] rounded-2xl overflow-auto items-center drop-shadow-xl">
                     <img className="w-full h-full" src="src/assets/img/img-menu.jpg" alt="img-menu" />
                   </div>
-
-                  <p className="font-bold text-[#393939] text-xl">yyy</p>
-
-                  <p className="flex font-bold text-yellow-300">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="font-bold text-[#454545] text-lg">ข้าวไข่ข้น</p>
+                    <p className="flex font-bold text-[#FFE05D] drop-shadow-md">
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                    </p>
+                  </div>
                 </div>
               </a>
             </div>
             <div className="box-content w-[236px] h-[267px] flex flex-col justify-end items-center">
               <a href="#">
-                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-2 border-dashed hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
+                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-4 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
                   <div className="absolute bottom-16 box-content w-[200px] h-[200px] rounded-2xl overflow-auto items-center drop-shadow-xl">
                     <img className="w-full h-full" src="src/assets/img/img-menu.jpg" alt="img-menu" />
                   </div>
-
-                  <p className="font-bold text-[#393939] text-xl">yyy</p>
-
-                  <p className="flex font-bold text-yellow-300">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="font-bold text-[#454545] text-lg">ข้าวไข่ข้น</p>
+                    <p className="flex font-bold text-[#FFE05D] drop-shadow-md">
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                    </p>
+                  </div>
                 </div>
               </a>
             </div>
             <div className="box-content w-[236px] h-[267px] flex flex-col justify-end items-center">
               <a href="#">
-                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-2 border-dashed hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
+                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-4 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
                   <div className="absolute bottom-16 box-content w-[200px] h-[200px] rounded-2xl overflow-auto items-center drop-shadow-xl">
                     <img className="w-full h-full" src="src/assets/img/img-menu.jpg" alt="img-menu" />
                   </div>
-
-                  <p className="font-bold text-[#393939] text-xl">yyy</p>
-
-                  <p className="flex font-bold text-yellow-300">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="font-bold text-[#454545] text-lg">ข้าวไข่ข้น</p>
+                    <p className="flex font-bold text-[#FFE05D] drop-shadow-md">
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                    </p>
+                  </div>
                 </div>
               </a>
             </div>
             <div className="box-content w-[236px] h-[267px] flex flex-col justify-end items-center">
               <a href="#">
-                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-2 border-dashed hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
+                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-4 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
                   <div className="absolute bottom-16 box-content w-[200px] h-[200px] rounded-2xl overflow-auto items-center drop-shadow-xl">
                     <img className="w-full h-full" src="src/assets/img/img-menu.jpg" alt="img-menu" />
                   </div>
-
-                  <p className="font-bold text-[#393939] text-xl">yyy</p>
-
-                  <p className="flex font-bold text-yellow-300">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="font-bold text-[#454545] text-lg">ข้าวไข่ข้น</p>
+                    <p className="flex font-bold text-[#FFE05D] drop-shadow-md">
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                    </p>
+                  </div>
                 </div>
               </a>
             </div>
             <div className="box-content w-[236px] h-[267px] flex flex-col justify-end items-center">
               <a href="#">
-                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-2 border-dashed hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
+                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-4 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
                   <div className="absolute bottom-16 box-content w-[200px] h-[200px] rounded-2xl overflow-auto items-center drop-shadow-xl">
                     <img className="w-full h-full" src="src/assets/img/img-menu.jpg" alt="img-menu" />
                   </div>
-
-                  <p className="font-bold text-[#393939] text-xl">yyy</p>
-
-                  <p className="flex font-bold text-yellow-300">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="font-bold text-[#454545] text-lg">ข้าวไข่ข้น</p>
+                    <p className="flex font-bold text-[#FFE05D] drop-shadow-md">
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                    </p>
+                  </div>
                 </div>
               </a>
             </div>
             <div className="box-content w-[236px] h-[267px] flex flex-col justify-end items-center">
               <a href="#">
-                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-2 border-dashed hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
+                <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-4 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
                   <div className="absolute bottom-16 box-content w-[200px] h-[200px] rounded-2xl overflow-auto items-center drop-shadow-xl">
                     <img className="w-full h-full" src="src/assets/img/img-menu.jpg" alt="img-menu" />
                   </div>
-
-                  <p className="font-bold text-[#393939] text-xl">yyy</p>
-
-                  <p className="flex font-bold text-yellow-300">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className="font-bold text-[#454545] text-lg">ข้าวไข่ข้น</p>
+                    <p className="flex font-bold text-[#FFE05D] drop-shadow-md">
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                      <FaStar />
+                    </p>
+                  </div>
                 </div>
               </a>
             </div>

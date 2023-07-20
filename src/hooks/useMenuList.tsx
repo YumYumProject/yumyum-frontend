@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { MenuDto } from '../types/types'
+import { IContent } from '../types/types'
 import { host } from '../constant'
 
 const useMenuList = () => {
-  const [menuList, setMenuList] = useState<MenuDto[] | null>(null)
+  const [menuList, setMenuList] = useState<IContent[] | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState(null)
 
@@ -11,12 +11,12 @@ const useMenuList = () => {
     const fetchData = async () => {
       setIsLoading(true)
       try {
-        const res = await fetch(`${host}/menu`)
+        const res = await fetch(`${host}/menus`)
         const data = await res.json()
 
         setMenuList(data.data)
-      } catch (err: any) {
-        setError(err.message)
+      } catch (err) {
+        setError(error)
       } finally {
         setIsLoading(false)
       }
@@ -25,7 +25,7 @@ const useMenuList = () => {
     fetchData()
   }, [])
 
-  return { menuList, isLoading, error }
+  return { menuList, setMenuList, isLoading, error }
 }
 
 export default useMenuList

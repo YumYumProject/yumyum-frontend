@@ -3,18 +3,17 @@ import './App.css'
 import Sample from './pages/sample'
 import { Route, Routes } from 'react-router-dom'
 import Search from './pages/Search'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   return (
     <>
       {/* <Navbar /> */}
+      <Toaster position="top-center" />
       <Routes>
         <Route path="/sample" element={<Sample />} />
-        <Route path="/menu" element={<Search />} />
+        <Route path="/menus" element={<Search />} />
       </Routes>
-
-      {/* <Toaster position="top-center" />
-      <Search /> */}
     </>
   )
 }

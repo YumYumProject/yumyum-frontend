@@ -1,26 +1,22 @@
 import React from 'react'
-import { MenuDto } from '../types/types'
 import { Link } from 'react-router-dom'
 import ReactStars from 'react-stars'
+import { IContent } from '../types/types'
 
 interface MenuCardProps {
-  menu: MenuDto
+  menu: IContent
 }
 
 const MenuCard = ({ menu }: MenuCardProps) => {
   return (
-    <Link to={`/menu/${menu.id}`}>
-      <div className="box-content w-[236px] h-[267px] flex flex-col justify-end items-center">
-        <div className="relative box-content w-[220px] h-[80px] rounded-xl bg-white/70 p-2 gap-2 flex flex-col justify-end items-center">
-          <div className="absolute bottom-16 box-content w-[200px] h-[200px] border-2 rounded-2xl overflow-auto items-center">
-            <img className="w-full h-full" src={menu.menu_image_url} alt="img-menu" />
-          </div>
-          <p className="font-bold text-xl">{menu.menu_name}</p>
-          <p className="flex font-bold text-yellow-300">
-            {[...Array(menu.rating).keys()].map((star) => (
-              <ReactStars key={star} count={5} size={24} color2={'#ffd700'} edit={false} />
-            ))}
-          </p>
+    <Link className="box-content w-[236px] h-[267px] flex flex-col justify-end items-center" to={`/menu/${menu._id}`}>
+      <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-4 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
+        <div className="absolute bottom-16 box-content w-[200px] h-[200px] rounded-2xl overflow-auto items-center drop-shadow-xl">
+          <img className="w-full h-full" src={menu.menu_image_url} alt="img-menu" />
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <p className="font-bold text-[#454545] text-lg">{menu.menu_name}</p>
+          <ReactStars key={menu.average_rating} count={5} size={24} color2={'#ffd700'} edit={false} />
         </div>
       </div>
     </Link>

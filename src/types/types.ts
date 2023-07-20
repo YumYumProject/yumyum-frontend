@@ -1,8 +1,12 @@
-export interface MenuDto {
-  id: number
+export interface IContentDto {
   menu_name: string
-  description: string
   menu_image_url: string
+  average_rating: number
+}
+
+export interface IContent extends IContentDto {
+  _id: string
+  description: string
   calories: ICalories
   process: Process
   nationality: Nationality
@@ -11,7 +15,7 @@ export interface MenuDto {
   cooking_step: ICookingStep[]
   updated_at: Date
   comment: IComment[]
-  rating: IRating[]
+  rating_count: number
 }
 
 export enum Nationality {
@@ -41,21 +45,6 @@ export enum HealthyConcern {
   Fat = 'อ้วน',
 }
 
-export interface IContent {
-  menu_name: string
-  description: string
-  menu_image_url: string
-  calories: ICalories
-  process: Process
-  nationality: Nationality
-  healthy_concern: HealthyConcern
-  material: IMaterial[]
-  cooking_step: ICookingStep[]
-  updated_at: Date
-  comment: IComment[]
-  rating: IRating[]
-}
-
 export interface IMaterial {
   name: string
   quantity: number
@@ -69,6 +58,7 @@ export interface ICookingStep {
 
 export interface IComment {
   description: string
+  rating: number
   commentBy: string
   commentedAt: Date
 }
@@ -77,6 +67,7 @@ export interface IRating {
   value: number
   user: { id: string }
 }
+
 export interface ICalories {
   value: number
   unit: string
