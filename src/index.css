@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'sage';
+    src: url('src/assets/fonts/sage-webfont.woff'),format('woff'),
+  }
+
+@font-face {
+    font-family: 'america';
+    src: url('src/assets/fonts/America.ttf'),format('ttf'),
+  }
