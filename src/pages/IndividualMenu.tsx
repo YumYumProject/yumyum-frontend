@@ -13,7 +13,7 @@ const IndividualMenu = () => {
 
   return (
     <div>
-      <div>
+      <div className="card">
         <div>
           <img src={menu.menu_image_url} alt="img-menu" />
         </div>
@@ -22,33 +22,25 @@ const IndividualMenu = () => {
         <p>{menu.calories.value}</p>
         <p>{menu.calories.unit}</p>
 
-        <div className="left">
-          <p>วัตถุดิบ</p>
-          <ol>
-            {menu.material.map((x) => (
-              <>
-                <li>
-                  <p>{x.name}</p>
-                  <p>{x.quantity}</p>
-                  <p>{x.unit}</p>
-                </li>
-              </>
-            ))}
-          </ol>
+        <div className="material">
+          {menu.material.map((x) => (
+            <>
+              <p>วัตถุดิบ</p>
+              <p>{x.name}</p>
+              <p>{x.quantity}</p>
+              <p>{x.unit}</p>
+            </>
+          ))}
         </div>
 
-        <div className="right">
-          <p>วิธีทำ</p>
-          <ol>
-            {menu.cooking_step.map((x) => (
-              <>
-                <li>
-                  <p>{x.order}</p>
-                  <p>{x.description}</p>
-                </li>
-              </>
-            ))}
-          </ol>
+        <div className="method">
+          {menu.cooking_step.map((x) => (
+            <>
+              <p>วิธีทำ</p>
+              <p>{x.order}</p>
+              <p>{x.description}</p>
+            </>
+          ))}
         </div>
       </div>
       <div>
