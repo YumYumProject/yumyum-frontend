@@ -5,10 +5,10 @@ import Navbar from '../components/Navbar'
 
 const Sample = () => {
   return (
-    <div className="w-full h-full bg-searchBg bg-cover">
+    <div className="w-screen h-full bg-searchBg bg-cover">
       <div className="box-content flex flex-col justify-center items-center gap-y-5 backdrop-blur-sm">
         <Navbar />
-        <div className="form-container w-[1440px] h-auto box-content py-8 border-2 border-[#D6D3D1]/50 bg-gradient-to-r from-[#D6D3D1]/80 to-[#D6D3D1]/60 rounded-3xl">
+        <div className="form-container w-[800px] md:w-[1000px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1440px] h-auto box-content py-8 border-2 border-[#D6D3D1]/50 bg-gradient-to-r from-[#D6D3D1]/80 to-[#D6D3D1]/60 rounded-3xl">
           <form className="flex justify-evenly gap-2">
             <div>
               <label className="block mb-2 text-base font-medium text-[#454545]" htmlFor="raw-material">
@@ -59,7 +59,7 @@ const Sample = () => {
             </div>
             <div className="flex justify-center items-center pt-6">
               <button
-                className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
+                className="flex justify-center font-medium text-base py-2.5 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full w-[130px] drop-shadow-xl"
                 type="submit"
               >
                 ค้นหาเมนู

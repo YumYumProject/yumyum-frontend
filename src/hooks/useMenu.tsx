@@ -22,7 +22,7 @@ const useMenu = (_id: string) => {
       }
     }
 
-    fetchData
+    fetchData()
   }, [])
 
   return { menu, isLoading, error }
