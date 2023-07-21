@@ -3,22 +3,20 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div className="bg-gradient-to-b from-[#D6D3D1]/90 w-screen">
-      <nav className="flex justify-between px-[160px] py-[48px]">
-        <div className="logo font-black text-[46px] text-white hover:text-[#FF8C32] drop-shadow-lg shadow-orange">
-          <Link to={'/'}>
-            <p>EazyEat</p>
-          </Link>
-        </div>
-        <div className="nav-link flex items-center gap-6 font-black text-lg text-white drop-shadow-md">
+    <div className="header w-full bg-gradient-to-b from-[#D6D3D1]/90">
+      <nav className="header-nav max-w-[1280px] h-[80px] mx-auto px-[16px] flex justify-between tems-center">
+        <Link to={'/'}>
+          <p className="logo font-bold text-[40px] text-white hover:text-[#FF8C32] drop-shadow-lg">EazyEat</p>
+        </Link>
+        <div className="menu-bar flex items-center gap-6 font-bold text-[18px] text-white drop-shadow-lg">
           <Link to={'/contact'}>
             <p className="hover:text-[#FF8C32]">ติดต่อเรา</p>
           </Link>
-          <Link to={'/login'}>
+          <Link to={'/auth/login'}>
             <p className="hover:text-[#FF8C32]">เข้าสู่ระบบ</p>
           </Link>
-          <Link to={'/register'}>
-            <p className="text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full font-black text-lg px-5 py-2.5 drop-shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
+          <Link to={'/user'}>
+            <p className="flex justify-center bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full w-[130px] px-5 py-2.5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
               ลงทะเบียน
             </p>
           </Link>

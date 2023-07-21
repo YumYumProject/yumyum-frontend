@@ -68,7 +68,9 @@ const Sample = () => {
           </form>
         </div>
 
-        <div className="menu-list w-[1440px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-10 gap-y-16 p-6 border-2 border-[#D6D3D1]/50 bg-gradient-to-r from-[#D6D3D1]/80 to-[#D6D3D1]/60 rounded-3xl">
+        {/* <hr className="border border-b-8 w-full" /> */}
+
+        <div className="menu-list max-w-7xl h-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center box-content gap-x-10 gap-y-16 p-6 border-2 border-[#D6D3D1]/50 bg-gradient-to-r from-[#D6D3D1]/80 to-[#D6D3D1]/60 rounded-3xl">
           <div className="box-content w-[236px] h-[267px] flex flex-col justify-end items-center">
             <a href="#">
               <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[220px] h-[80px] rounded-xl bg-white/60 border-4 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
