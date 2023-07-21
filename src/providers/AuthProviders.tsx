@@ -1,4 +1,5 @@
 import React, { useState, useContext, createContext } from "react";
+import { host } from "../assets/constant/host";
 
 export enum HealthyConcern {
     Diabetes = 'เบาหวาน',
@@ -45,8 +46,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const loginInfo = { username, password }
 
     try {
-      const res = await fetch('https://api.learnhub.thanayut.in.th/auth/login', {
-        method: 'POST',
+      const res = await fetch(`${host}/auth/me}`, {
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginInfo),
       })
@@ -65,11 +66,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  const register = async (username: string, password: string, name: string) => {
-    const registerBody = { username, name, password }
+  const register = async (display_name: string, username: string, password: string, food_allergen: string, healthy_concern: HealthyConcern) => {
+    const registerBody = { display_name, username, password, food_allergen, healthy_concern }
 
     try {
-      const res = await fetch('https://api.learnhub.thanayut.in.th/user', {
+      const res = await fetch(`${host}/user}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(registerBody),

@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { HealthyConcern, IRegister } from '../providers/AuthProviders';
+import { HealthyConcern } from '../providers/AuthProviders';
 import { useAuth } from '../providers/AuthProviders';
 
 
@@ -23,12 +23,12 @@ interface IUser extends Document {
 const Register = () => {
 
   const navigate = useNavigate()
-  const { register, login } = useAuth()
+  const { register } = useAuth()
   const [usernameInput, setUsernameInput] = useState<string>('');
   const [passwordInput, setPasswordInput] = useState<string>('');
   const [displayNameInput, setDisplayNameInput] = useState<string>('');
   const [foodAllergenInput, setFoodAllergenInput] = useState<string>('');
-  const [healthyCcInput, setHealthyCcInput] = useState<IRegister>();
+  const [healthyCcFilter, setHealthyCcInput] = useState<string>('All')
 
   // click to submit, then go to login page
   // user data must match with backend request
@@ -39,7 +39,7 @@ const Register = () => {
 
         try {
 
-          await register(usernameInput,passwordInput,displayNameInput,foodAllergenInput,healthyCcInput)
+          await register(usernameInput,passwordInput,displayNameInput,foodAllergenInput,healthyCcFilter)
 
           navigate('/')
 
@@ -79,7 +79,7 @@ const Register = () => {
                             {/* must be dropdown for user to choose */}
                             <p>Healthy concern</p>
                             <label htmlFor="underline_select" className="sr-only"></label>
-                              <select id="underline_select" value={healthyCcInput} onChange={(e) => setHealthyCcInput(e.target.value)} className="block h-[40px] w-[400px] rounded-[50px] p-[10px] text-black bg-white appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                              <select id="underline_select" value={healthyCcFilter} onChange={(e) => setHealthyCcInput(e.target.value)} className="block h-[40px] w-[400px] rounded-[50px] p-[10px] text-black bg-white appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                                 <option value="All">ไม่มี</option>
                                 <option value={HealthyConcern.Diabetes}>เบาหวาน</option>
                                 <option value={HealthyConcern.Pressure}>ความดัน</option>
