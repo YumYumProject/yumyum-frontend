@@ -5,7 +5,7 @@ import { Loading } from '../components/Loading'
 import useMenuList from '../hooks/useMenuList'
 import Navbar from '../components/Navbar'
 import { Nationality, Process } from '../types/types'
-import MenuList from '../components/MenuList'
+import MenuCard from '../components/MenuCard'
 
 const Search = () => {
   const { menuList, setMenuList, isLoading, error } = useMenuList()
@@ -106,7 +106,9 @@ const Search = () => {
           </form>
         </div>
         <div className="menu-list w-[1440px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-10 gap-y-16 p-6 border-2 border-[#D6D3D1]/50 bg-gradient-to-r from-[#D6D3D1]/80 to-[#D6D3D1]/60 rounded-3xl">
-          <MenuList />
+          {menuList.map((menu) => (
+            <MenuCard key={menu._id} menu={menu} />
+          ))}
         </div>
       </div>
     </div>

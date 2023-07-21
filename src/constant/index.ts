@@ -1,1 +1,1 @@
-export const host = 'https://api.yumyum.th'
+export const host = 'http://localhost:8000'
