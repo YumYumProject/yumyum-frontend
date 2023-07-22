@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div className="header w-full bg-gradient-to-b from-[#D6D3D1]/90">
-      <nav className="header-nav max-w-[1280px] h-[80px] mx-auto px-[16px] flex justify-between tems-center">
+      <nav className="header-nav max-w-[1440px] h-[80px] mx-auto px-[16px] flex justify-between items-center">
         <Link to={'/'}>
           <p className="logo font-bold text-[40px] text-white hover:text-[#FF8C32] drop-shadow-lg">EazyEat</p>
         </Link>

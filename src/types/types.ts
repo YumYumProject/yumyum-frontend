@@ -1,11 +1,16 @@
-export interface IContentDto {
-  menu_name: string
-  menu_image_url: string
-  average_rating: number
+export interface IUser {
+  _id: string
+  username: string
+  password: string
+  display_name: string
+  healthy_concern: string
+  food_allergen: string
 }
 
-export interface IContent extends IContentDto {
+export interface IContent {
   _id: string
+  menu_name: string
+  menu_image_url: string
   description: string
   calories: ICalories
   process: Process
@@ -14,7 +19,9 @@ export interface IContent extends IContentDto {
   material: IMaterial[]
   cooking_step: ICookingStep[]
   updated_at: Date
-  comment: IComment[]
+  comment: IComment
+  commentBy: IUser
+  average_rating: number
   rating_count: number
 }
 
@@ -56,19 +63,19 @@ export interface ICookingStep {
   description: string
 }
 
+export interface ICalories {
+  value: number
+  unit: string
+}
+
 export interface IComment {
   description: string
   rating: number
-  commentBy: string
-  commentedAt: Date
+
+  commentedAt: string
 }
 
 export interface IRating {
   value: number
   user: { id: string }
-}
-
-export interface ICalories {
-  value: number
-  unit: string
 }

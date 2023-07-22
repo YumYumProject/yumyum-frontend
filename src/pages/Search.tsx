@@ -2,13 +2,13 @@ import React, { FormEvent, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { host } from '../constant'
 import { Loading } from '../components/Loading'
-import useMenuList from '../hooks/useMenuList'
 import Navbar from '../components/Navbar'
 import { Nationality, Process } from '../types/types'
 import MenuCard from '../components/MenuCard'
+import useContentList from '../hooks/useContentList'
 
 const Search = () => {
-  const { menuList, setMenuList, isLoading, error } = useMenuList()
+  const { contentList, setContentList, isLoading, error } = useContentList()
   const [searchMaterial, setSearchMaterial] = useState<string>('')
   const [filterProcess, setFilterProcess] = useState<string>('All')
   const [filterNationality, setFilterNationality] = useState<string>('All')
@@ -24,7 +24,7 @@ const Search = () => {
       )
       const data = await res.json()
 
-      setMenuList(data)
+      setContentList(data)
 
       toast.success('เลือกเมนูกันเลย!')
     } catch (err) {
@@ -34,7 +34,7 @@ const Search = () => {
 
   if (isLoading) return <Loading />
 
-  if (error || !menuList) return <p>{error}</p>
+  if (error || !contentList) return <p>{error}</p>
 
   return (
     <div className="w-full h-full bg-searchBg bg-cover">
@@ -106,7 +106,7 @@ const Search = () => {
           </form>
         </div>
         <div className="menu-list w-[1440px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-10 gap-y-16 p-6 border-2 border-[#D6D3D1]/50 bg-gradient-to-r from-[#D6D3D1]/80 to-[#D6D3D1]/60 rounded-3xl">
-          {menuList.map((menu) => (
+          {contentList.map((menu) => (
             <MenuCard key={menu._id} menu={menu} />
           ))}
         </div>

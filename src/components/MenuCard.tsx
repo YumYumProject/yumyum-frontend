@@ -16,7 +16,7 @@ const MenuCard = ({ menu }: MenuCardProps) => {
         </div>
         <div className="flex flex-col items-center gap-1">
           <p className="font-bold text-[#454545] text-lg">{menu.menu_name}</p>
-          <ReactStars key={menu.average_rating} count={5} size={24} color2={'#ffd700'} edit={false} />
+          <ReactStars key={menu.average_rating} count={5} size={24} color2={'#ffd700'} edit={false} char="&#10032;" />
         </div>
       </div>
     </Link>

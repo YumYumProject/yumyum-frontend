@@ -1,44 +1,44 @@
 import React from 'react'
-import useMenu from '../hooks/useMenu'
+import useMenu from '../hooks/useContent'
 import { Loading } from '../components/Loading'
 import { Link, useParams } from 'react-router-dom'
+import ReviewList from '../components/ReviewList'
 
 const IndividualMenu = () => {
-  const { id } = useParams()
-  const { menu, isLoading, error } = useMenu(id || '')
+  const { _id } = useParams()
+  const { content, isLoading, error } = useMenu(_id || '')
 
-  if (isLoading || !menu) return <Loading />
-
+  if (isLoading || !content) return <Loading />
   if (error) return <p>{error}</p>
 
   return (
     <div>
       <div className="card">
         <div>
-          <img src={menu.menu_image_url} alt="img-menu" />
+          <img src={content.menu_image_url} alt="img-menu" />
         </div>
 
-        <p>{menu.menu_name}</p>
-        <p>{menu.calories.value}</p>
-        <p>{menu.calories.unit}</p>
+        <p>{content.menu_name}</p>
+        <p>{content.calories.value}</p>
+        <p>{content.calories.unit}</p>
 
         <div className="material">
-          {menu.material.map((x) => (
+          {content.material.map((material) => (
             <>
               <p>วัตถุดิบ</p>
-              <p>{x.name}</p>
-              <p>{x.quantity}</p>
-              <p>{x.unit}</p>
+              <p>{material.name}</p>
+              <p>{material.quantity}</p>
+              <p>{material.unit}</p>
             </>
           ))}
         </div>
 
         <div className="method">
-          {menu.cooking_step.map((x) => (
+          {content.cooking_step.map((step) => (
             <>
               <p>วิธีทำ</p>
-              <p>{x.order}</p>
-              <p>{x.description}</p>
+              <p>{step.order}</p>
+              <p>{step.description}</p>
             </>
           ))}
         </div>
@@ -46,6 +46,7 @@ const IndividualMenu = () => {
       <div>
         <Link to={`/create`}>Create new review</Link>
       </div>
+      <ReviewList />
     </div>
   )
 }

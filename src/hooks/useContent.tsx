@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { host } from '../constant'
 import { IContent } from '../types/types'
 
-const useMenu = (_id: string) => {
-  const [menu, setMenu] = useState<IContent | null>(null)
+const useContent = (_id: string) => {
+  const [content, setContent] = useState<IContent | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState(null)
 
@@ -14,7 +14,7 @@ const useMenu = (_id: string) => {
         const res = await fetch(`${host}/menu/${_id}`)
         const data = await res.json()
 
-        setMenu(data)
+        setContent(data)
       } catch (err) {
         setError(error)
       } finally {
@@ -25,7 +25,7 @@ const useMenu = (_id: string) => {
     fetchData()
   }, [])
 
-  return { menu, isLoading, error }
+  return { content, isLoading, error }
 }
 
-export default useMenu
+export default useContent
