@@ -23,9 +23,9 @@ const IndividualMenu = () => {
         <p>{content.calories.unit}</p>
 
         <div className="material">
+          <p>วัตถุดิบ</p>
           {content.material.map((material) => (
             <>
-              <p>วัตถุดิบ</p>
               <p>{material.name}</p>
               <p>{material.quantity}</p>
               <p>{material.unit}</p>
@@ -34,9 +34,9 @@ const IndividualMenu = () => {
         </div>
 
         <div className="method">
+          <p>วิธีทำ</p>
           {content.cooking_step.map((step) => (
             <>
-              <p>วิธีทำ</p>
               <p>{step.order}</p>
               <p>{step.description}</p>
             </>
