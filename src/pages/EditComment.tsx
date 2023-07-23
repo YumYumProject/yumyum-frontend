@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
 import useContent from '../hooks/useContent'
 
-const EditReview = () => {
+const EditComment = () => {
   const navigate = useNavigate()
   const { _id } = useParams()
   const { content, isLoading, error } = useContent(_id || '')
@@ -21,11 +21,11 @@ const EditReview = () => {
           className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
           type="submit"
         >
-          แก้ไขรีวิว
+          ส่ง
         </button>
       </form>
     </div>
   )
 }
 
-export default EditReview
+export default EditComment

@@ -3,7 +3,7 @@ import React from 'react'
 export const Loading = () => {
   return (
     <div>
-      <p>Loading...</p>
+      <p className="font-black text-[40px]">Loading...</p>
     </div>
   )
 }

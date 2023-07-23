@@ -1,12 +1,14 @@
 import React, { FormEvent, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
 import { host } from '../constant'
 import { toast } from 'react-hot-toast'
 
-const CreateReview = () => {
+const CreateComment = () => {
   const navigate = useNavigate()
-  const [url, setUrl] = useState<string>('')
+  const { _id } = useParams()
+  const [displayName, setDisplayName] = useState<string>('')
+  const [userId, setUserId] = useState<string>('')
   const [comment, setComment] = useState<string>('')
   const [rating, setRating] = useState<number>(0)
 
@@ -14,18 +16,19 @@ const CreateReview = () => {
     e.preventDefault()
 
     try {
-      await fetch(`${host}/content`, {
+      await fetch(`${host}/menu/${_id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          menu_image_url: url,
-          comment,
+          display_name: displayName,
+          user_id: userId,
+          description: comment,
           rating: rating,
         }),
       })
 
-      toast.success('ขอบคุณสำหรับการรีวิว!')
-      navigate('/menu/:_id')
+      toast.success('ขอบคุณสำหรับความคิดเห็น!')
+      navigate(`/menu/${_id}`)
     } catch (err) {
       alert(err)
     }
@@ -34,8 +37,10 @@ const CreateReview = () => {
   return (
     <div>
       <form className="flex justify-center items-center" onSubmit={handleCreate}>
-        <label>รูปภาพ:</label>
-        <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} required />
+        <label>display_name:</label>
+        <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} required />
+        <label>user_id:</label>
+        <input type="text" value={userId} onChange={(e) => setUserId(e.target.value)} required />
         <label>ข้อความ:</label>
         <input type="text" value={comment} onChange={(e) => setComment(e.target.value)} required />
         <label>คะแนน:</label>
@@ -52,11 +57,11 @@ const CreateReview = () => {
           className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
           type="submit"
         >
-          รีวิว
+          ส่ง
         </button>
       </form>
     </div>
   )
 }
 
-export default CreateReview
+export default CreateComment

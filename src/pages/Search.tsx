@@ -2,7 +2,6 @@ import React, { FormEvent, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { host } from '../constant'
 import { Loading } from '../components/Loading'
-import Navbar from '../components/Navbar'
 import { Nationality, Process } from '../types/types'
 import MenuCard from '../components/MenuCard'
 import useContentList from '../hooks/useContentList'
@@ -39,7 +38,6 @@ const Search = () => {
   return (
     <div className="w-full h-full bg-searchBg bg-cover">
       <div className="box-content flex flex-col justify-center items-center gap-y-5 backdrop-blur-sm">
-        <Navbar />
         <div className="form-container w-[1440px] h-auto box-content py-8 border-2 border-[#D6D3D1]/50 bg-gradient-to-r from-[#D6D3D1]/80 to-[#D6D3D1]/60 rounded-3xl">
           <form className="flex justify-evenly gap-2" onSubmit={handleSearch}>
             <div className="flex flex-col">

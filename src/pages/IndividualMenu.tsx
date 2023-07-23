@@ -1,15 +1,18 @@
-import React from 'react'
-import useMenu from '../hooks/useContent'
+import React, { Fragment } from 'react'
 import { Loading } from '../components/Loading'
 import { Link, useParams } from 'react-router-dom'
-import ReviewList from '../components/ReviewList'
+import useContent from '../hooks/useContent'
+import CommentList from '../components/CommentList'
+import ReactStars from 'react-stars'
 
 const IndividualMenu = () => {
   const { _id } = useParams()
-  const { content, isLoading, error } = useMenu(_id || '')
+  const { content, isLoading, error } = useContent(_id || '')
 
   if (isLoading || !content) return <Loading />
   if (error) return <p>{error}</p>
+
+  console.log(content)
 
   return (
     <div>
@@ -25,28 +28,33 @@ const IndividualMenu = () => {
         <div className="material">
           <p>วัตถุดิบ</p>
           {content.material.map((material) => (
-            <>
+            <Fragment key={material.name}>
               <p>{material.name}</p>
               <p>{material.quantity}</p>
               <p>{material.unit}</p>
-            </>
+            </Fragment>
           ))}
         </div>
 
         <div className="method">
           <p>วิธีทำ</p>
           {content.cooking_step.map((step) => (
-            <>
+            <Fragment key={step.order}>
               <p>{step.order}</p>
               <p>{step.description}</p>
-            </>
+            </Fragment>
           ))}
         </div>
       </div>
       <div>
-        <Link to={`/create`}>Create new review</Link>
+        <p>คะแนน</p>
+        <p>{content.average_rating} /5</p>
+        <ReactStars key={content.average_rating} count={5} size={24} color2={'#ffd700'} edit={false} char="&#10032;" />
       </div>
-      <ReviewList />
+      <div>
+        <Link to={`/menu/${_id}/create`}>เพิ่มความคิดเห็น</Link>
+      </div>
+      <CommentList comments={content.comment} />
     </div>
   )
 }

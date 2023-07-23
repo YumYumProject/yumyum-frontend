@@ -19,10 +19,43 @@ export interface IContent {
   material: IMaterial[]
   cooking_step: ICookingStep[]
   updated_at: Date
-  comment: IComment
-  commentBy: IUser
+  comment: IComment[]
   average_rating: number
   rating_count: number
+}
+
+export interface ICommentByUser {
+  display_name: string
+  user_id: string
+  commentedAt: string
+}
+
+export interface IComment {
+  _id: string
+  description: string
+  rating: number
+  comment_by: ICommentByUser
+}
+
+export interface IMaterial {
+  name: string
+  quantity: number
+  unit: string
+}
+
+export interface ICookingStep {
+  order: number
+  description: string
+}
+
+export interface ICalories {
+  value: number
+  unit: string
+}
+
+export interface IRating {
+  value: number
+  user: { id: string }
 }
 
 export enum Nationality {
@@ -50,32 +83,4 @@ export enum HealthyConcern {
   Kidney = 'ไต',
   WeightLoss = 'ลดน้ำหนัก',
   Fat = 'อ้วน',
-}
-
-export interface IMaterial {
-  name: string
-  quantity: number
-  unit: string
-}
-
-export interface ICookingStep {
-  order: number
-  description: string
-}
-
-export interface ICalories {
-  value: number
-  unit: string
-}
-
-export interface IComment {
-  description: string
-  rating: number
-
-  commentedAt: string
-}
-
-export interface IRating {
-  value: number
-  user: { id: string }
 }

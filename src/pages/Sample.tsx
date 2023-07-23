@@ -5,19 +5,21 @@ const Sample = () => {
   return (
     <div>
       <div className="max-w-[1440px] mx-auto px-[16px] flex flex-col justify-center items-center backdrop-blur-sm">
-        <div className="contianer-menu relative box-border w-[990px] h-[900px] flex justify-center mx-auto">
+        <div className="contianer-menu relative box-border w-[990px] h-[900px] flex justify-center mb-[80px]">
           <img
             className="w-full h-[660px] rounded-2xl"
             src="src/assets/img/img-spaghetti-carbonara.jpg"
             alt="img-menu"
           />
 
-          <div className="absolute  bottom-0 box-border border-2 rounded-2xl bg-white w-[700px] h-[300px] px-[60px] pt-[60px] mx-auto flex flex-col items-center">
-            <p className="block w-full font-black text-[60px] text-center">สปาเกตตี้คาโบนาร่า</p>
-            <p className="flex align-center ">
-              <FaWeightScale />
-              317 กิโลแคลอรี่
-            </p>
+          <div className="absolute bottom-0 border-2 rounded-t-2xl bg-white w-[700px] h-[300px] px-[60px] pt-[60px] flex flex-col items-center">
+            <div className="block w-full text-center mx-auto">
+              <p className="font-black text-[60px] leading-[50px]">สปาเกตตี้คาโบนาร่า</p>
+              <div className="w-full flex justify-center items-center gap-[10px] py-[20px]">
+                <FaWeightScale />
+                <p>317 กิโลแคลอรี่</p>
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex justify-center gx-[20px]">
