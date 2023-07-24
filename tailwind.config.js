@@ -7,6 +7,10 @@ export default {
         homeBg: "url('src/assets/img/img-bg-home.jpg')",
         searchBg: "url('src/assets/img/img-bg-search.jpg')",
       },
+      colors: {
+        bb: '#243c5a',
+        orange: '#FF8C32',
+      },
     },
   },
   plugins: [require('flowbite/plugin')],

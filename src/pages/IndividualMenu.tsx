@@ -52,7 +52,12 @@ const IndividualMenu = () => {
         <ReactStars key={content.average_rating} count={5} size={24} color2={'#ffd700'} edit={false} char="&#10032;" />
       </div>
       <div>
-        <Link to={`/menu/${_id}/create`}>เพิ่มความคิดเห็น</Link>
+        <Link
+          className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
+          to={`/menu/${_id}/create`}
+        >
+          เพิ่มความคิดเห็น
+        </Link>
       </div>
       <CommentList comments={content.comment} />
     </div>
