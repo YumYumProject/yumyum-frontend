@@ -1,9 +1,7 @@
 import React from 'react'
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { HealthyConcern } from '../providers/AuthProviders';
+import { HealthyConcern, IRegister } from '../providers/AuthProviders';
 import { useAuth } from '../providers/AuthProviders';
 
 
@@ -28,7 +26,7 @@ const Register = () => {
   const [passwordInput, setPasswordInput] = useState<string>('');
   const [displayNameInput, setDisplayNameInput] = useState<string>('');
   const [foodAllergenInput, setFoodAllergenInput] = useState<string>('');
-  const [healthyCcFilter, setHealthyCcInput] = useState<string>('All')
+  const [healthyCcFilter, setHealthyCcInput] = useState<IRegister>()
 
   // click to submit, then go to login page
   // user data must match with backend request
@@ -48,11 +46,10 @@ const Register = () => {
           console.log(`${err}.message`)
 
         } 
-    }
+   }
       
     return (
         <div className='bg-center bg-cover bg-registerBg'>
-            <Navbar />
             <div className='flex justify-center'>
                     <div className='bg-gradient-to-r from-red-50/50 to-zinc-500/20 container h-auto w-[800px] rounded-[35px] grid justify-items-center'>
                       <header className='grid justify-items-center p-[20px]'>
@@ -63,23 +60,23 @@ const Register = () => {
                         <div>
                           <label>
                             <p>Display name</p>
-                            <input type="text" onChange={(e) => setDisplayNameInput(e.target.value)} className='h-[32px] w-[400px] rounded-[50px] p-[10px]'/></label>
+                            <input type="text" value='display_name' onChange={(e) => setDisplayNameInput(e.target.value)} className='h-[32px] w-[400px] rounded-[50px] p-[10px]'/></label>
                         </div>
                         <div>
                           <label>
                             <p>Username</p>
-                            <input type='text' onChange={(e) => setUsernameInput(e.target.value)} className='h-[32px] w-[400px] rounded-[50px] p-[10px]' required /></label>
+                            <input type='text' value='username' onChange={(e) => setUsernameInput(e.target.value)} className='h-[32px] w-[400px] rounded-[50px] p-[10px]' required /></label>
                         </div>
                         <div>
                           <label>
                             <p>Password</p>
-                            <input type='password' onChange={(e) => setPasswordInput(e.target.value)} className='h-[32px] w-[400px] rounded-[50px] p-[10px]' required/></label>
+                            <input type='password' value='password' onChange={(e) => setPasswordInput(e.target.value)} className='h-[32px] w-[400px] rounded-[50px] p-[10px]' required/></label>
                         </div>
                         <div>
                             {/* must be dropdown for user to choose */}
                             <p>Healthy concern</p>
                             <label htmlFor="underline_select" className="sr-only"></label>
-                              <select id="underline_select" value={healthyCcFilter} onChange={(e) => setHealthyCcInput(e.target.value)} className="block h-[40px] w-[400px] rounded-[50px] p-[10px] text-black bg-white appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                              <select id="underline_select" value='healthy_concern' onChange={(e) => setHealthyCcInput(e.target.value)} className="block h-[40px] w-[400px] rounded-[50px] p-[10px] text-black bg-white appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                                 <option value="All">ไม่มี</option>
                                 <option value={HealthyConcern.Diabetes}>เบาหวาน</option>
                                 <option value={HealthyConcern.Pressure}>ความดัน</option>
@@ -92,7 +89,7 @@ const Register = () => {
                         <div>  
                           <label>
                             <p>Food allergen</p>
-                            <input type='text' onChange={(e) => setFoodAllergenInput(e.target.value)} className='h-[32px] w-[400px] rounded-[50px] p-[10px]' /></label>
+                            <input type='text' value='food_allergen' onChange={(e) => setFoodAllergenInput(e.target.value)} className='h-[32px] w-[400px] rounded-[50px] p-[10px]' /></label>
                         </div>
                         <button type='button' value='submit' onClick={(e) => handleSubmit(e)} className='box-border h-[50px] w-[150px] text-white text-l hover:text-xl font-bold p-[2px] m-10 rounded-[50px]
                           bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
@@ -106,7 +103,6 @@ const Register = () => {
                       </form>
                     </div>
                     </div>
-            <Footer />
         </div>
     )
 }

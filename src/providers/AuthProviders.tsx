@@ -70,7 +70,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const registerBody = { display_name, username, password, food_allergen, healthy_concern }
 
     try {
-      const res = await fetch(`${host}/user}`, {
+      const res = await fetch(`${host}/user/}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(registerBody),
