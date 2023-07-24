@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Sample from './pages/sample'
+import Sample from './pages/Sample'
 import { Route, Routes } from 'react-router-dom'
 import Search from './pages/Search'
 import { Toaster } from 'react-hot-toast'
