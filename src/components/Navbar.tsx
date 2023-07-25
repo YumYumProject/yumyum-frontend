@@ -4,6 +4,7 @@ import { useAuth } from '../providers/AuthProviders'
 
 const Navbar = () => {
   const { isLoggedIn, logout } = useAuth()
+  
   return (
     <div className="header w-full bg-gradient-to-b from-[#D6D3D1]/90">
       <nav className="header-nav max-w-[1280px] h-[80px] mx-auto px-[16px] flex justify-between tems-center">

@@ -1,28 +1,11 @@
 import React, { useState, useContext, createContext } from "react";
 import { host } from "../assets/constant/host";
 
-export enum HealthyConcern {
-    Diabetes = 'เบาหวาน',
-    Pressure = 'ความดัน',
-    Heart = 'หัวใจ',
-    Kidney = 'ไต',
-    WeightLoss = 'ลดน้ำหนัก',
-    Fat = 'อ้วน',
-  }
-
-export interface IRegister {
-    username: string,
-    password: string,
-    display_name: string,
-    food_allergen: string,
-    healthy_concern: HealthyConcern
-}
-
 interface IAuthContext {
   isLoggedIn: boolean
   username: string | null
   login: (username: string, password: string) => Promise<void>
-  register: (display_name: string, username: string, password: string, food_allergen: string, healthy_concern: HealthyConcern) => Promise<void>
+  register: (display_name: string, username: string, password: string) => Promise<void>
   logout: () => void
 }
 
@@ -66,8 +49,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  const register = async (display_name: string, username: string, password: string, food_allergen: string, healthy_concern: HealthyConcern) => {
-    const registerBody = { display_name, username, password, food_allergen, healthy_concern }
+  const register = async (display_name: string, username: string, password: string) => {
+    const registerBody = { display_name, username, password }
 
     try {
       const res = await fetch(`${host}/user/}`, {
