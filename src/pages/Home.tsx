@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { host } from '../types/host'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 // link login,logout + register
 // bg full image
@@ -22,6 +24,7 @@ const Home = () => {
 
   return (
     <div className="bg-center bg-fixed bg-cover bg-homeBg">
+      <Navbar />
       <div className="flex justify-center">
         <main className="bg-gradient-to-r from-red-50/50 to-zinc-500/20 container h-5000 w-5000 rounded-[35px] grid justify-items-center">
           <header className="box-border h-auto w-auto ml-[20%] mr-[20%] mb-[100px] gap-[10px] text-white flex flex-col items-center m-10">
@@ -68,6 +71,7 @@ const Home = () => {
           </button>
         </main>
       </div>
+      <Footer />
     </div>
   )
 }

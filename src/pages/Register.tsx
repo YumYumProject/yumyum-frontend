@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState, FormEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProviders'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 /* 
 
@@ -28,6 +30,8 @@ const Register = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
+    // Register completed > automatically to login page? or Homepage
+
     try {
       await register(displayNameInput, usernameInput, passwordInput)
       await login(usernameInput, passwordInput)
@@ -40,8 +44,9 @@ const Register = () => {
 
   return (
     <div className="bg-center bg-cover bg-registerBg">
+      <Navbar />
       <div className="flex justify-center">
-        <div className="bg-gradient-to-r from-red-50/50 to-zinc-500/20 container h-auto w-[800px] rounded-[35px] grid justify-items-center">
+        <div className="bg-gradient-to-r from-red-50/50 to-zinc-500/20 h-auto w-[800px] rounded-[35px] grid justify-items-center">
           <header className="grid justify-items-center p-[20px]">
             <h2 className="text-[30px] font-bold p-[15px]">Register</h2>
             <img src="/assets/img/avartar.jpg" className="h-[200px] my-[15px]" />
@@ -96,11 +101,14 @@ const Register = () => {
           <div className="grid justify-items-center mb-[55px]">
             <div className="inline-flex gap-[15px]">
               <p>Already have an account?</p>
-              <button className="text-[#382b98] italic">Login</button>
+              <Link to={'/auth/login'}>
+                <button className="text-[#382b98] italic hover:text-[#FF8C32]">Login</button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
