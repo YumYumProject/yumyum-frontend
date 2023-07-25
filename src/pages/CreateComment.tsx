@@ -29,20 +29,26 @@ const CreateComment = () => {
 
       toast.success('ขอบคุณสำหรับความคิดเห็น!')
       navigate(`/menu/${_id}`)
-    } catch (err) {
-      alert(err)
+    } catch (err: any) {
+      toast.error(err.message)
     }
   }
 
   return (
     <div>
       <form className="flex justify-center items-center" onSubmit={handleCreate}>
-        <label>display_name:</label>
-        <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} required />
-        <label>user_id:</label>
-        <input type="text" value={userId} onChange={(e) => setUserId(e.target.value)} required />
-        <label>ข้อความ:</label>
-        <input type="text" value={comment} onChange={(e) => setComment(e.target.value)} required />
+        <label htmlFor="display-name">display_name:</label>
+        <input
+          type="text"
+          id="display-name"
+          value={displayName}
+          onChange={(e) => setDisplayName(e.target.value)}
+          required
+        />
+        <label htmlFor="user-id">user_id:</label>
+        <input type="text" id="user-id" value={userId} onChange={(e) => setUserId(e.target.value)} required />
+        <label htmlFor="comment">ข้อความ:</label>
+        <input type="text" id="comment" value={comment} onChange={(e) => setComment(e.target.value)} required />
         <label>คะแนน:</label>
         <ReactStars
           count={5}

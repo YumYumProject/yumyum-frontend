@@ -7,7 +7,6 @@ const MenuList = () => {
   const { contentList, isLoading, error } = useContentList()
 
   if (isLoading) return <Loading />
-
   if (error || !contentList) return <p>{error}</p>
 
   return (

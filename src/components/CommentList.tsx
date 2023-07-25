@@ -4,15 +4,16 @@ import { IComment } from '../types/types'
 
 interface ICommentListProps {
   comments: IComment[]
+  contentId: string
 }
 
 const CommentList = (props: ICommentListProps) => {
-  const { comments } = props
+  const { comments, contentId } = props
 
   return (
     <div>
       {comments.map((comment) => (
-        <CommentCard key={comment._id} comment={comment} />
+        <CommentCard key={comment._id} comment={comment} contentId={contentId} />
       ))}
     </div>
   )

@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        homeBg: "url('src/assets/img/img-bg-home.jpg')",
-        searchBg: "url('src/assets/img/img-bg-search.jpg')",
+        homeBg: "url('/assets/img/img-bg-home.jpg')",
+        searchBg: "url('/assets/img/img-bg-search.jpg')",
       },
       colors: {
         bb: '#243c5a',

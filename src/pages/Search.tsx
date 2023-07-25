@@ -28,13 +28,12 @@ const Search = () => {
       setContentList(data)
 
       toast.success('เลือกเมนูกันเลย!')
-    } catch (err) {
-      alert(err)
+    } catch (err: any) {
+      toast.error(err.message)
     }
   }
 
   if (isLoading) return <Loading />
-
   if (error || !contentList) return <p>{error}</p>
 
   return (
@@ -51,7 +50,6 @@ const Search = () => {
                   className="block w-[300px] border border-white/80 bg-white/60 text-[#454545] text-sm rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] drop-shadow-lg"
                   type="text"
                   id="material"
-                  name="material"
                   value={filterMaterial}
                   onChange={(e) => setFilterMaterial(e.target.value)}
                   placeholder="วัตถุดิบของคุณ..."
@@ -65,7 +63,7 @@ const Search = () => {
                 <select
                   className="block w-[300px] border border-white/80 bg-white/60 text-[#454545] text-sm rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] drop-shadow-lg"
                   value={filterProcess}
-                  name="process"
+                  id="process"
                   onChange={(e) => setFilterProcess(e.target.value)}
                 >
                   <option value="All">ทั้งหมด</option>
@@ -85,7 +83,7 @@ const Search = () => {
                 <select
                   className="block w-[300px] border border-white/80 bg-white/60 text-[#454545] text-sm rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] drop-shadow-lg"
                   value={filterNationality}
-                  name="nationality"
+                  id="nationality"
                   onChange={(e) => setFilterNationality(e.target.value)}
                 >
                   <option value="All">ทั้งหมด</option>
@@ -108,7 +106,6 @@ const Search = () => {
                   className="block w-[300px] border border-white/80 bg-white/60 text-[#454545] text-sm rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] drop-shadow-lg"
                   type="text"
                   id="food-allergen"
-                  name="food-allergen"
                   value={filterFoodAllergen}
                   onChange={(e) => setFoodAllergen(e.target.value)}
                   placeholder="---"
@@ -121,7 +118,7 @@ const Search = () => {
                 <select
                   className="block w-[300px] border border-white/80 bg-white/60 text-[#454545] text-sm rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] drop-shadow-lg"
                   value={filterHealthyConcern}
-                  name="healthy-concern"
+                  id="healthy-concern"
                   onChange={(e) => setHealthyConcern(e.target.value)}
                 >
                   <option value="">---</option>
@@ -145,9 +142,21 @@ const Search = () => {
           </form>
         </div>
         <div className="menu-list w-[1440px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-10 gap-y-16 p-6 border-2 rounded-3xl">
-          {contentList.map((menu) => (
-            <MenuCard key={menu._id} menu={menu} />
-          ))}
+          {!contentList ? (
+            <p>ไม่พบข้อมูลที่คุณค้นหา</p>
+          ) : (
+            <>
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : (
+                <>
+                  {contentList.map((menu) => (
+                    <MenuCard key={menu._id} menu={menu} />
+                  ))}
+                </>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>

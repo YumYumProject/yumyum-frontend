@@ -20,7 +20,7 @@ function App() {
         <Route path="/menu" element={<Search />} />
         <Route path="/menu/:_id" element={<IndividualMenu />} />
         <Route path="/menu/:_id/create" element={<CreateComment />} />
-        <Route path="/menu/:_id/edit" element={<EditComment />} />
+        <Route path="/menu/:_id/edit/:comment_id" element={<EditComment />} />
       </Routes>
       <Footer />
     </>
