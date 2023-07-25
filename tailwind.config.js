@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        homeBg: "url('src/assets/img/img-bg-home.jpg')",
-        searchBg: "url('src/assets/img/img-bg-search.jpg')",
-        registerBg: "url('src/assets/img/img-bg-register.jpg')",
-        loginBg: "url('src/assets/img/img-bg-login.jpg')"
+        homeBg: "url('/assets/img/img-bg-home.jpg')",
+        searchBg: "url('/assets/img/img-bg-search.jpg')",
+        registerBg: "url('/assets/img/img-bg-register.jpg')",
+        loginBg: "url('/assets/img/img-bg-login.jpg')",
       },
     },
   },
