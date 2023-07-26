@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { host } from '../types/host'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -16,7 +15,7 @@ const Home = () => {
 
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    return navigate(`${host}/content/`)
+    return navigate('/menu')
   }
 
   // test

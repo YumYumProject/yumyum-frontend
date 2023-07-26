@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import Login from './pages/Login'
 import GuardRoute from './guards/GuardRoute'
 import { useAuth } from './providers/AuthProviders'
+import MenuList from './pages/Search'
 
 function App() {
   const { isLoggedIn } = useAuth()
@@ -21,6 +22,7 @@ function App() {
         <Route element={<GuardRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/auth/login" element={<Login />} />
         </Route>
+        <Route path="/menu" element={<MenuList />} />
       </Routes>
       {/* <Footer /> */}
     </>

@@ -76,7 +76,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         throw new Error('cannot login')
       }
 
-      const newToken = data.accessToken
+      const newToken = data.token
 
       const { username } = await retrieveUserData(newToken)
 
