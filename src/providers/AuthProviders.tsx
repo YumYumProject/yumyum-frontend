@@ -10,13 +10,13 @@ interface IAuthContext {
 }
 const AuthContext = createContext<IAuthContext | null>(null)
 
-// const userData = (token: string) =>
-//   fetch(`${host}/auth/me`, {
-//     headers: {
-//       'Content-Type': 'application/json',
-//       Authorization: `Bearer ${token}`,
-//     },
-//   }).then((res) => res.json)
+const retrieveUserData = (token: string) =>
+  fetch(`${host}/auth/me`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => res.json)
 
 export function useAuth() {
   const context = React.useContext(AuthContext)
@@ -63,6 +63,10 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       })
 
       const data = await res.json()
+
+      // const newToken = data.accessToken
+
+      // const { username } = await retrieveUserData(newToken)
 
       // const userInfo = userData(data.token)
 
