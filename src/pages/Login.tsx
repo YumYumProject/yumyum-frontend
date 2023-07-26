@@ -25,9 +25,9 @@ const Login = () => {
   }
 
   return (
-    <div className="bg-center bg-fixed bg-cover bg-loginBg">
+    <div className="h-[710px] bg-center bg-fixed bg-cover bg-loginBg">
       <Navbar />
-      <div className="flex justify-center">
+      <div className="h-[559px] flex justify-center">
         <main className="bg-gradient-to-r from-red-50/50 to-zinc-100/20 h-[400px] w-[500px] rounded-[35px] grid justify-items-center">
           <div>
             <p className="font-bold text-[30px] text-white p-12">Welcome Back!</p>

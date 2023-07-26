@@ -1,13 +1,19 @@
 import React, { useState, createContext } from 'react'
 import { host } from '../types/host'
+import { IComment } from '../types/types'
 
 interface IAuthContext {
   isLoggedIn: boolean
   username: string | null
+  token: string | null
   login: (username: string, password: string) => Promise<void>
   register: (display_name: string, username: string, password: string) => Promise<void>
   logout: () => void
+  isOwnComment: (comment: IComment) => boolean
 }
+
+type UserInfo = Pick<IAuthContext, 'username' | 'token'>
+
 const AuthContext = createContext<IAuthContext | null>(null)
 
 const retrieveUserData = (token: string) =>
@@ -16,7 +22,7 @@ const retrieveUserData = (token: string) =>
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => res.json)
+  }).then((res) => res.json())
 
 export function useAuth() {
   const context = React.useContext(AuthContext)
@@ -26,11 +32,15 @@ export function useAuth() {
 }
 
 const token = localStorage.getItem('token')
-const user = localStorage.getItem('user')
+const user = localStorage.getItem('username')
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!token)
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!localStorage.getItem('token'))
   const [username, setUsername] = useState<string | null>(user)
+  const [userinfo, setUserInfo] = useState<UserInfo>({
+    username: username,
+    token: token,
+  })
 
   const register = async (display_name: string, username: string, password: string) => {
     const registerBody = { display_name, username, password }
@@ -47,13 +57,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         throw new Error(data.message)
       }
     } catch (err: any) {
-      throw new Error(err.message)
+      throw new Error('cannot register')
     }
   }
   const login = async (username: string, password: string) => {
     const loginInfo = { username, password }
-
-    console.log(JSON.stringify(loginInfo))
 
     try {
       const res = await fetch(`${host}/auth/login`, {
@@ -64,20 +72,21 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
       const data = await res.json()
 
-      // const newToken = data.accessToken
-
-      // const { username } = await retrieveUserData(newToken)
-
-      // const userInfo = userData(data.token)
-
       if (data.statusCode === 401) {
-        throw new Error(data.message)
+        throw new Error('cannot login')
       }
 
-      localStorage.setItem('token', data.token)
+      const newToken = data.accessToken
+
+      const { username } = await retrieveUserData(newToken)
+
+      localStorage.setItem('token', newToken)
       localStorage.setItem('user', username)
       setIsLoggedIn(true)
-      setUsername(username)
+      setUserInfo({
+        username: username,
+        token: newToken,
+      })
     } catch (err: any) {
       throw new Error(err.message)
     }
@@ -90,8 +99,15 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUsername(null)
   }
 
+  const isOwnComment = (comment: IComment) => {
+    console.log(comment)
+    return comment.comment_by.user_id === userinfo.username
+  }
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, username, login, logout, register }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ isLoggedIn, username, login, logout, register, isOwnComment, token }}>
+      {children}
+    </AuthContext.Provider>
   )
 }
 

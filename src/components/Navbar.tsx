@@ -17,20 +17,22 @@ const Navbar = () => {
           </Link>
           <div>
             {isLoggedIn ? (
-              <button onClick={logout} className="text-white text-[16px]">
+              <button onClick={logout} className="hover:text-[#FF8C32]">
                 ออกจากระบบ
               </button>
             ) : (
-              <Link to={'/auth/login'}>
-                <p className="hover:text-[#FF8C32]">เข้าสู่ระบบ</p>
-              </Link>
+              <div className="flex items-center gap-6">
+                <Link to={'/auth/login'}>
+                  <p className="hover:text-[#FF8C32]">เข้าสู่ระบบ</p>
+                </Link>
+                <Link to={'/user/'}>
+                  <p className="flex justify-center bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full w-[130px] px-5 py-2.5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                    ลงทะเบียน
+                  </p>
+                </Link>
+              </div>
             )}
           </div>
-          <Link to={'/user/'}>
-            <p className="flex justify-center bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full w-[130px] px-5 py-2.5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-              ลงทะเบียน
-            </p>
-          </Link>
         </div>
       </nav>
     </div>
