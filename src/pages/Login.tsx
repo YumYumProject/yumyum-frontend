@@ -1,8 +1,6 @@
 import { useState, FormEvent } from 'react'
 import { useAuth } from '../providers/AuthProviders'
 import { useNavigate } from 'react-router-dom'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 
 const Login = () => {
   const { login } = useAuth()
@@ -12,8 +10,6 @@ const Login = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    // Login completed > automatically to Home page
 
     try {
       await login(usernameInput, passwordInput)
@@ -25,12 +21,11 @@ const Login = () => {
   }
 
   return (
-    <div className="h-[710px] bg-center bg-fixed bg-cover bg-loginBg">
-      <Navbar />
-      <div className="h-[559px] flex justify-center">
-        <main className="bg-gradient-to-r from-red-50/50 to-zinc-100/20 h-[400px] w-[500px] rounded-[35px] grid justify-items-center">
+    <div className="h-[710px] bg-center bg-local bg-cover bg-loginBg">
+      <div className="h-[559px] flex justify-center items-center">
+        <main className="bg-gradient-to-r from-zinc-50/80 to-zinc-100/70 h-[400px] w-[500px] rounded-[35px] grid justify-items-center">
           <div>
-            <p className="font-bold text-[30px] text-white p-12">Welcome Back!</p>
+            <p className="font-bold text-[30px] text-black p-12">Welcome Back!</p>
           </div>
           <form onSubmit={handleSubmit} className="flex flex-col">
             <div className="grid grid-cols-1">
@@ -55,14 +50,17 @@ const Login = () => {
               />
             </div>
             <div className="flex justify-center">
-              <button type="submit" value="submit" className="bg-white h-[50px] w-[150px] m-10 rounded-[50px]">
+              <button
+                type="submit"
+                value="submit"
+                className="bg-[#FF9642] h-[50px] w-[150px] m-10 rounded-[50px] drop-shadow-xl focus:bg-white"
+              >
                 Login
               </button>
             </div>
           </form>
         </main>
       </div>
-      <Footer />
     </div>
   )
 }

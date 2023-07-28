@@ -60,6 +60,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       throw new Error('cannot register')
     }
   }
+
   const login = async (username: string, password: string) => {
     const loginInfo = { username, password }
 
