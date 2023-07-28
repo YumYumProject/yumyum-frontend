@@ -1,8 +1,6 @@
-import { useState, FormEvent } from 'react'
-import { useAuth } from '../providers/AuthProviders'
+import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import { useAuth } from '../providers/AuthProviders'
 
 const Login = () => {
   const { login } = useAuth()
@@ -26,7 +24,6 @@ const Login = () => {
 
   return (
     <div className="h-[710px] bg-center bg-fixed bg-cover bg-loginBg">
-      <Navbar />
       <div className="h-[559px] flex justify-center">
         <main className="bg-gradient-to-r from-red-50/50 to-zinc-100/20 h-[400px] w-[500px] rounded-[35px] grid justify-items-center">
           <div>
@@ -62,7 +59,6 @@ const Login = () => {
           </form>
         </main>
       </div>
-      <Footer />
     </div>
   )
 }

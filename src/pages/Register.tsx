@@ -1,8 +1,6 @@
-import { useState, FormEvent } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { FormEvent, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProviders'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 
 /* 
 
@@ -43,7 +41,6 @@ const Register = () => {
 
   return (
     <div className="bg-center bg-cover bg-registerBg">
-      <Navbar />
       <div className="flex justify-center">
         <div className="bg-gradient-to-r from-red-50/50 to-zinc-500/20 h-auto w-[800px] rounded-[35px] grid justify-items-center">
           <header className="grid justify-items-center p-[20px]">
@@ -107,7 +104,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   )
 }
