@@ -5,10 +5,10 @@ import { Route, Routes } from 'react-router-dom'
 import Search from './pages/Search'
 import { Toaster } from 'react-hot-toast'
 import IndividualMenu from './pages/IndividualMenu'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
 import EditComment from './pages/EditComment'
 import CreateComment from './pages/CreateComment'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 
 function App() {
   return (

@@ -11,7 +11,7 @@ const CommentList = (props: ICommentListProps) => {
   const { comments, contentId } = props
 
   return (
-    <div>
+    <div className="flex flex-col gap-5">
       {comments.map((comment) => (
         <CommentCard key={comment._id} comment={comment} contentId={contentId} />
       ))}

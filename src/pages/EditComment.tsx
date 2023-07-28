@@ -24,7 +24,7 @@ const EditComment = () => {
     e.preventDefault()
 
     try {
-      const res = await fetch(`${host}/menu/${_id}`, {
+      const res = await fetch(`${host}/comment/${_id}?comment_id=${comment_id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -52,33 +52,40 @@ const EditComment = () => {
   if (error) return <p>{error}</p>
 
   return (
-    <div>
-      <form className="flex justify-center items-center" onSubmit={handleEdit}>
-        <label htmlFor="comment">ข้อความ:</label>
-        <input
-          type="text"
-          id="comment"
-          defaultValue={comment.description}
-          value={newComment}
-          onChange={(e) => setNewComment(e.target.value)}
-          required
-        />
-        <label>คะแนน:</label>
-        <ReactStars
-          count={5}
-          value={newRating}
-          onChange={(rating) => setNewRating(rating)}
-          size={24}
-          color2={'#ffd700'}
-          half={false}
-          char="&#10032;"
-        />
-        <button
-          className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
-          type="submit"
-        >
-          ส่ง
-        </button>
+    <div className="form-container w-full h-auto mt-[30px] box-content py-[32px]">
+      <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleEdit}>
+        <div>
+          <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="comment">
+            ข้อความ:
+          </label>
+          <input
+            className="block w-[620px] border border-white/80 bg-white/60 text-[14px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] drop-shadow-lg"
+            type="text"
+            id="comment"
+            defaultValue={comment.description}
+            onChange={(e) => setNewComment(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label className="flex gap-2 mb-2 text-[16px] font-medium">คะแนน:</label>
+          <ReactStars
+            count={5}
+            value={newRating}
+            onChange={(rating) => setNewRating(rating)}
+            size={24}
+            color2="orange"
+            half={false}
+          />
+        </div>
+        <div>
+          <button
+            className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
+            type="submit"
+          >
+            ส่ง
+          </button>
+        </div>
       </form>
     </div>
   )

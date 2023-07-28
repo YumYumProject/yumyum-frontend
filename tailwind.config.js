@@ -4,12 +4,16 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        homeBg: "url('/assets/img/img-bg-home.jpg')",
-        searchBg: "url('/assets/img/img-bg-search.jpg')",
+        homeBg: "url('assets/img/img-bg-home.jpg')",
+        searchBg: "url('assets/img/img-bg-search.jpg')",
+        searchBg2: "url('assets/img/img-bg-search-2.jpg')",
+        searchBg3: "url('assets/img/img-bg-search-3.jpg')",
+        individualMenuBg: "url('/assets/img/img-bg-individual-menu.jpg')",
       },
       colors: {
         bb: '#243c5a',
         orange: '#FF8C32',
+        borderInput: '#FFA559',
       },
     },
   },

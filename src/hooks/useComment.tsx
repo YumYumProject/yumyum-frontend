@@ -11,7 +11,7 @@ const useComment = (_id: string, comment_id: string) => {
     const fetchData = async () => {
       setIsLoading(true)
       try {
-        const res = await fetch(`${host}/menu/${_id}/edit/${comment_id}`)
+        const res = await fetch(`${host}/comment/${_id}?comment_id=${comment_id}`)
         const data = await res.json()
 
         setComment(data)
