@@ -1,14 +1,16 @@
-import React, { Fragment } from 'react'
-import { Loading } from '../components/Loading'
-import { Link, useParams } from 'react-router-dom'
-import useContent from '../hooks/useContent'
-import CommentList from '../components/CommentList'
+import { Fragment } from 'react'
 import { FaWeightScale } from 'react-icons/fa6'
+import { Link, useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
+import CommentList from '../components/CommentList'
+import { Loading } from '../components/Loading'
+import useContent from '../hooks/useContent'
+import { useAuth } from '../providers/AuthProviders'
 
 const IndividualMenu = () => {
   const { _id } = useParams()
   const { content, isLoading, error } = useContent(_id || '')
+  const { isLoggedIn } = useAuth()
 
   if (isLoading || !content) return <Loading />
   if (error) return <p>{error}</p>
@@ -83,14 +85,14 @@ const IndividualMenu = () => {
             />
           </div>
           <div>
-            {/* {isLogedIn && ( */}
-            <Link
-              className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
-              to={`/menu/${_id}/create`}
-            >
-              เพิ่มความคิดเห็น
-            </Link>
-            {/* )} */}
+            {isLoggedIn && (
+              <Link
+                className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
+                to={`/menu/${_id}/create`}
+              >
+                เพิ่มความคิดเห็น
+              </Link>
+            )}
           </div>
         </div>
         <div className=" items-center pb-[50px] w-full ">

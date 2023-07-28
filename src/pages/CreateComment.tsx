@@ -1,8 +1,9 @@
-import React, { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
+import { toast } from 'react-hot-toast'
 import { useNavigate, useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
 import { host } from '../constant'
-import { toast } from 'react-hot-toast'
+import { useAuth } from '../providers/AuthProviders'
 
 const CreateComment = () => {
   const navigate = useNavigate()
@@ -11,6 +12,7 @@ const CreateComment = () => {
   const [userId, setUserId] = useState<string>('')
   const [comment, setComment] = useState<string>('')
   const [rating, setRating] = useState<number>(0)
+  const { userInfo } = useAuth()
 
   const handleCreate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -18,7 +20,7 @@ const CreateComment = () => {
     try {
       await fetch(`${host}/menu/${_id}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${userInfo.token}` },
         body: JSON.stringify({
           display_name: displayName,
           user_id: userId,

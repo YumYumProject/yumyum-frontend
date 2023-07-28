@@ -1,18 +1,21 @@
-import React, { useState, createContext } from 'react'
+import React, { createContext, useState } from 'react'
 import { host } from '../types/host'
 import { IComment } from '../types/types'
 
 interface IAuthContext {
   isLoggedIn: boolean
-  username: string | null
-  token: string | null
+  userInfo: UserInfo
+
   login: (username: string, password: string) => Promise<void>
   register: (display_name: string, username: string, password: string) => Promise<void>
   logout: () => void
   isOwnComment: (comment: IComment) => boolean
 }
 
-type UserInfo = Pick<IAuthContext, 'username' | 'token'>
+interface UserInfo {
+  username: string | null
+  token: string | null
+}
 
 const AuthContext = createContext<IAuthContext | null>(null)
 
@@ -37,7 +40,7 @@ const user = localStorage.getItem('username')
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!localStorage.getItem('token'))
   const [username, setUsername] = useState<string | null>(user)
-  const [userinfo, setUserInfo] = useState<UserInfo>({
+  const [userInfo, setUserInfo] = useState<UserInfo>({
     username: username,
     token: token,
   })
@@ -46,6 +49,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const registerBody = { display_name, username, password }
 
     try {
+      // axios.post
       const res = await fetch(`${host}/user/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -101,11 +105,13 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const isOwnComment = (comment: IComment) => {
     console.log(comment)
-    return comment.comment_by.user_id === userinfo.username
+    return comment.comment_by.user_id === userInfo.username
   }
 
+  console.log('erere')
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, username, login, logout, register, isOwnComment, token }}>
+    <AuthContext.Provider value={{ isLoggedIn, userInfo, login, logout, register, isOwnComment }}>
       {children}
     </AuthContext.Provider>
   )
