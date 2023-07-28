@@ -1,25 +1,20 @@
 import React from 'react'
-import { FaRegCopyright, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa6'
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa6'
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="flex justify-between  px-[10rem] py-[3rem]">
-        <div className="copyright flex justify-center item-center font-bold">
-          <p>
-            <FaRegCopyright />
-          </p>
-          <p>2023 EazyEat</p>
-        </div>
-        <div className="social flex">
+    <div className="b-[0px] w-full bg-gradient-to-t from-[#D6D3D1]/90">
+      <footer className="footer max-w-[1280px] h-[80px] mx-auto px-[16px] flex justify-between tems-center">
+        <p className="font-bold text-[18px] text-white drop-shadow-lg">&copy; 2023 EazyEat</p>
+        <div className="social flex item-center gap-6">
           <a href="#">
-            <FaFacebook className="text-xl text-orange-300" />
+            <FaFacebook className="font-bold text-[24px] text-white hover:text-[#FF8C32] drop-shadow-lg" />
           </a>
           <a href="#">
-            <FaInstagram className="text-xl text-orange-300" />
+            <FaInstagram className="font-bold text-[24px] text-white hover:text-[#FF8C32] drop-shadow-lg" />
           </a>
           <a href="#">
-            <FaTwitter className="text-xl text-orange-300" />
+            <FaTwitter className="font-bold text-[24px] text-white hover:text-[#FF8C32] drop-shadow-lg" />
           </a>
         </div>
       </footer>
