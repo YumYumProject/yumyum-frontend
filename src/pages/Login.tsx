@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProviders'
 
 const Login = () => {
@@ -23,42 +23,65 @@ const Login = () => {
   }
 
   return (
-    <div className="h-[710px] bg-center bg-fixed bg-cover bg-loginBg">
-      <div className="h-[559px] flex justify-center">
-        <main className="bg-gradient-to-r from-red-50/50 to-zinc-100/20 h-[400px] w-[500px] rounded-[35px] grid justify-items-center">
-          <div>
-            <p className="font-bold text-[30px] text-white p-12">Welcome Back!</p>
+    <div className="w-full h-full bg-loginBg bg-cover">
+      <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
+      <div className="w-full h-screen backdrop-blur-sm">
+        <div className="box-content max-w-[1440px] mx-auto flex items-center ">
+          <div className="form-container w-full h-auto rounded-[20px] bg-white/50 my-[60px] p-[40px]">
+            <p className="w-full mb-[60px] text-[40px] text-center text-orange">
+              &ldquo; ยินดีต้อนรับกลับเข้าสู่ EazyEat &rdquo;
+            </p>
+            <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleSubmit}>
+              <div>
+                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="username">
+                  ชื่อผู้ใช้:
+                </label>
+                <input
+                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
+                  type="text"
+                  id="username"
+                  value={usernameInput}
+                  onChange={(e) => setUsernameInput(e.target.value)}
+                  placeholder="ชื่อผู้ใช้..."
+                  required
+                />
+              </div>
+              <div>
+                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="password">
+                  รหัสผ่าน:
+                </label>
+                <input
+                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
+                  type="password"
+                  id="password"
+                  value={passwordInput}
+                  onChange={(e) => setPasswordInput(e.target.value)}
+                  placeholder="รหัสผ่าน..."
+                  required
+                />
+              </div>
+              <div>
+                <button
+                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-xl hover:text-xl bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
+                        hover:from-[#c1f31f] hover:to-[#4ccf20]"
+                  type="submit"
+                >
+                  เข้าสู่ระบบ
+                </button>
+              </div>
+            </form>
+            <div className="flex justify-center items-center pt-[30px]">
+              <div className="inline-flex gap-[15px]">
+                <p>คุณยังไม่มีบัญชีใช่ไหม?</p>
+                <Link to={'/user'}>
+                  <button className="text-[#382b98] italic hover:text-orange">สมัครสมาชิก</button>
+                </Link>
+              </div>
+            </div>
           </div>
-          <form onSubmit={handleSubmit} className="flex flex-col">
-            <div className="grid grid-cols-1">
-              <label htmlFor="username">Username:</label>
-              <input
-                type="text"
-                value={usernameInput}
-                onChange={(e) => setUsernameInput(e.target.value)}
-                className="h-[32px] w-[400px] rounded-[50px] p-[10px] bg-white/80"
-                required
-              />
-            </div>
-            <div className="grid grid-cols-1">
-              <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                value={passwordInput}
-                onChange={(e) => setPasswordInput(e.target.value)}
-                id="password"
-                className="h-[32px] w-[400px] rounded-[50px] p-[10px] bg-white/80"
-                required
-              />
-            </div>
-            <div className="flex justify-center">
-              <button type="submit" value="submit" className="bg-white h-[50px] w-[150px] m-10 rounded-[50px]">
-                Login
-              </button>
-            </div>
-          </form>
-        </main>
+        </div>
       </div>
+      <div className="bottom-0 box-content bg-white w-full h-[50px] rounded-t-[100%]" />
     </div>
   )
 }

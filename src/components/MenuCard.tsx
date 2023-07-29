@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import ReactStars from 'react-stars'
 import { IContent } from '../types/types'
+import { FaStar } from 'react-icons/fa'
 
 interface MenuCardProps {
   menu: IContent
@@ -8,48 +8,20 @@ interface MenuCardProps {
 
 const MenuCard = ({ menu }: MenuCardProps) => {
   return (
-    <Link
-      className="box-content w-full h-[400px]  bg-white/90 rounded-2xl flex flex-col justify-end items-center transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 border-4 hover:border-[#FFA559] hover:shadow-[#FFA559]/50"
-      to={`/menu/${menu._id}`}
-    >
-      {/* <div className="box-content w-full h-full  overflow-auto items-center"> */}
-      <img
-        className="box-content w-full h-full object-cover overflow-hidden items-center rounded-t-[12px]"
-        src={menu.menu_image_url}
-        alt="img-menu"
-      />
-      {/* </div> */}
-      <div className="w-full flex flex-col items-center gap-1 py-6">
-        <p className="font-bold text-[18px]">{menu.menu_name}</p>
-        <ReactStars
-          key={menu.average_rating}
-          value={menu.average_rating}
-          count={5}
-          size={24}
-          color2="orange"
-          edit={false}
-        />
+    <Link className="w-full h-[400px]" to={`/menu/${menu._id}`}>
+      <div className="card relative w-full h-full bg-base-100 shadow-xl overflow-hidden transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150">
+        <figure className="h-[70%]">
+          <img className="w-full h-full object-cover" src={menu.menu_image_url} alt="img-menu" />
+        </figure>
+        <div className="card-body flex justify-center items-center bg-white h-[30%]">
+          <h2 className="card-title text-center">{menu.menu_name}</h2>
+          <div className="badge badge-secondary absolute top-[10px] right-[10px] bg-white shadow-xl border-none py-[14px] px-[14px] gap-[6px]">
+            <FaStar className="text-orange" />
+            <p className="text-black">({menu.average_rating})</p>
+          </div>
+        </div>
       </div>
-      {/* <div className="transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-full h-[100px] rounded-b-2xl  bg-white/60 border-2 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] py-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl"></div> */}
     </Link>
-    // <Link className="box-content w-full h-[400px] flex flex-col justify-end items-center" to={`/menu/${menu._id}`}>
-    //   <div className="relative transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 box-content w-[320px] h-[100px] rounded-xl border-white/80 bg-white/60 border-2 shadow-lg hover:shadow-[#FFA559]/50 hover:border-[#FFA559] p-2 gap-2 flex flex-col justify-end items-center drop-shadow-xl">
-    //     <div className="absolute bottom-[85px] box-content w-[300px] h-[300px] rounded-2xl overflow-auto items-center drop-shadow-xl">
-    //       <img className="w-full h-full  object-cover" src={menu.menu_image_url} alt="img-menu" />
-    //     </div>
-    //     <div className="flex flex-col items-center gap-1">
-    //       <p className="font-bold text-[18px]">{menu.menu_name}</p>
-    //       <ReactStars
-    //         key={menu.average_rating}
-    //         value={menu.average_rating}
-    //         count={5}
-    //         size={24}
-    //         color2="orange"
-    //         edit={false}
-    //       />
-    //     </div>
-    //   </div>
-    // </Link>
   )
 }
 

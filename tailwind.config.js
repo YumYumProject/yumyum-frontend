@@ -5,12 +5,12 @@ export default {
     extend: {
       backgroundImage: {
         homeBg: "url('/assets/img/img-bg-home.jpg')",
-        searchBg: "url('/assets/img/img-bg-search.jpg')",
-        searchBg2: "url('/assets/img/img-bg-search-2.jpg')",
-        searchBg3: "url('/assets/img/img-bg-search-3.jpg')",
-        individualMenuBg: "url('/assets/img/img-bg-individual-menu.jpg')",
+        searchBg: "url('/assets/img/img-bg-search-2.jpg')",
+        createCommentBg: "url('/assets/img/img-bg-create-comment.jpg')",
+        editCommentBg: "url('/assets/img/img-bg-edit-comment.jpg')",
+        individualMenuBg: "url('/assets/img/img-bg-individual-menu-3.jpg')",
         registerBg: "url('/assets/img/img-bg-register.jpg')",
-        loginBg: "url('/assets/img/img-bg-login.jpg')",
+        loginBg: "url('/assets/img/img-bg-login-2.jpg')",
         testH1: "url('/assets/img/testhome1.jpg')",
         testH2: "url('/assets/img/testhome2.jpg')",
         testH3: "url('/assets/img/bgbgbgbg.jpg')",

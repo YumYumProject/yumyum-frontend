@@ -5,6 +5,7 @@ import moment from 'moment'
 import { host } from '../constant'
 import { toast } from 'react-hot-toast/headless'
 import { FaCommentDots } from 'react-icons/fa'
+import { useAuth } from '../providers/AuthProviders'
 
 interface CommentCardProps {
   comment: IComment
@@ -13,6 +14,7 @@ interface CommentCardProps {
 
 const CommentCard = ({ comment, contentId }: CommentCardProps) => {
   const { _id } = useParams()
+  const { isOwnComment } = useAuth()
 
   const handleDelete = async () => {
     try {
@@ -32,25 +34,28 @@ const CommentCard = ({ comment, contentId }: CommentCardProps) => {
 
   return (
     <div>
-      <div className="flex justify-between items-end p-[20px] w-full bg-white/70 rounded-[20px]">
-        <div className="text-[18px]">
-          <p>{comment.comment_by.display_name}</p>
-          <ReactStars key={comment.rating} count={5} value={comment.rating} size={24} color2="orange" edit={false} />
+      <div className="flex justify-between items-end p-[20px] w-full bg-white/50 rounded-[20px]">
+        <div className="text-[14px] pr-[30px]">
+          <p className="flex gap-[8px]">
+            {comment.comment_by.display_name} <FaCommentDots />
+          </p>
           <p>{moment(comment.comment_by.commentedAt).format('MMMM Do YYYY, h:mm:ss a')}</p>
-          <FaCommentDots />
-          <p>{comment.description}</p>
+          <ReactStars key={comment.rating} count={5} value={comment.rating} size={24} color2="orange" edit={false} />
+          <br />
+
+          <p>&ldquo; {comment.description} &rdquo;</p>
         </div>
         <div className="flex gap-5">
-          {/* {user_id === comment.comment_by.user_id && ( */}
+          {/* {isOwnComment && isOwnComment(comment!) && ( */}
           <>
             <Link
-              className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
+              className="text-[14px] font-medium px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
               to={`/menu/${contentId}/edit/${comment._id}`}
             >
               แก้ไข
             </Link>
             <button
-              className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
+              className="text-[14px] font-medium px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
               onClick={handleDelete}
             >
               ลบ
@@ -59,7 +64,6 @@ const CommentCard = ({ comment, contentId }: CommentCardProps) => {
           {/* )} */}
         </div>
       </div>
-      {/* <hr className="w-full border-1 border-orange" /> */}
     </div>
   )
 }

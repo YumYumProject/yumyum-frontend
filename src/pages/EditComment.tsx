@@ -52,41 +52,52 @@ const EditComment = () => {
   if (error) return <p>{error}</p>
 
   return (
-    <div className="form-container w-full h-auto mt-[30px] box-content py-[32px]">
-      <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleEdit}>
-        <div>
-          <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="comment">
-            ข้อความ:
-          </label>
-          <input
-            className="block w-[620px] border border-white/80 bg-white/60 text-[14px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] drop-shadow-lg"
-            type="text"
-            id="comment"
-            defaultValue={comment.description}
-            onChange={(e) => setNewComment(e.target.value)}
-            required
-          />
+    <div className="w-full h-full bg-editCommentBg bg-cover">
+      <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
+      <div className="w-full h-screen backdrop-blur-sm ">
+        <div className="box-content max-w-[1440px] mx-auto flex items-center ">
+          <div className="form-container w-full h-auto rounded-[20px] bg-white/50 my-[60px] p-[40px]">
+            <p className="w-full mb-[60px] text-[40px] text-center text-orange">&ldquo; แก้ไขความคิดเห็น &rdquo;</p>
+            <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleEdit}>
+              <div>
+                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="editComment">
+                  แก้ไขข้อความ:
+                </label>
+                <input
+                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
+                  type="text"
+                  id="editComment"
+                  defaultValue={comment.description}
+                  onChange={(e) => setNewComment(e.target.value)}
+                  placeholder="ข้อความ..."
+                  required
+                />
+              </div>
+              <div className="flex flex-col items-start w-[620px]">
+                <label className="flex gap-2 mb-2 text-[16px] font-medium">แก้ไขคะแนน:</label>
+                <ReactStars
+                  count={5}
+                  value={newRating}
+                  onChange={(rating) => setNewRating(rating)}
+                  size={30}
+                  color2="orange"
+                  half={false}
+                />
+              </div>
+              <div>
+                <button
+                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-xl hover:text-xl bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
+                        hover:from-[#c1f31f] hover:to-[#4ccf20]"
+                  type="submit"
+                >
+                  ส่ง
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div>
-          <label className="flex gap-2 mb-2 text-[16px] font-medium">คะแนน:</label>
-          <ReactStars
-            count={5}
-            value={newRating}
-            onChange={(rating) => setNewRating(rating)}
-            size={24}
-            color2="orange"
-            half={false}
-          />
-        </div>
-        <div>
-          <button
-            className="font-medium text-base px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
-            type="submit"
-          >
-            ส่ง
-          </button>
-        </div>
-      </form>
+      </div>
+      <div className="bottom-0 box-content bg-white w-full h-[50px] rounded-t-[100%]" />
     </div>
   )
 }

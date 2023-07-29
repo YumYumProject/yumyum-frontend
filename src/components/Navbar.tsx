@@ -4,24 +4,30 @@ import { useAuth } from '../providers/AuthProviders'
 const Navbar = () => {
   const { isLoggedIn, logout } = useAuth()
   return (
-    <div className="top-0 header w-ful bg-white/90">
-      <nav className="header-nav max-w-[1440px] h-auto mx-auto px-[16px] py-[20px] flex justify-between items-center ">
+    <div className="header w-ful bg-white">
+      <nav className="header-nav max-w-[1440px] h-auto mx-auto px-[16px] pt-[20px] pb-[10px] flex justify-between items-center ">
         <Link to={'/'}>
-          <p className="logo font-bold text-[40px] hover:text-[#FF8C32] drop-shadow-lg">EazyEat</p>
+          <p className="logo font-bold text-[30px] hover:text-orange drop-shadow-sm">EazyEat</p>
         </Link>
-        <div className="menu-bar flex items-center gap-6 font-bold text-[18px] drop-shadow-lg">
+        <div className="menu-bar flex items-center gap-6 text-[18px] font-medium drop-shadow-lg">
+          <Link to={'/menu'}>
+            <p className="hover:text-orange">ค้นหาเมนู</p>
+          </Link>
           <div>
             {isLoggedIn ? (
-              <button onClick={logout} className="hover:text-[#FF8C32]">
+              <button onClick={logout} className="hover:text-orange">
                 ออกจากระบบ
               </button>
             ) : (
               <div className="flex items-center gap-6">
                 <Link to={'/auth/login'}>
-                  <p className="hover:text-[#FF8C32]">เข้าสู่ระบบ</p>
+                  <p className="hover:text-orange">เข้าสู่ระบบ</p>
                 </Link>
-                <Link to={'/user/'}>
-                  <p className="font-medium text-[18px] px-5 py-2.5 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl">
+                <Link to={'/user'}>
+                  <p
+                    className="text-[16px] font-medium px-5 py-2.5 text-white rounded-full drop-shadow-sm hover:text-xl bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
+                        hover:from-[#c1f31f] hover:to-[#4ccf20]"
+                  >
                     สมัครสมาชิก
                   </p>
                 </Link>

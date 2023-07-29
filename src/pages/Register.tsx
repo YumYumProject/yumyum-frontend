@@ -40,70 +40,79 @@ const Register = () => {
   }
 
   return (
-    <div className="bg-center bg-cover bg-registerBg">
-      <div className="flex justify-center">
-        <div className="bg-gradient-to-r from-red-50/50 to-zinc-500/20 h-auto w-[800px] rounded-[35px] grid justify-items-center">
-          <header className="grid justify-items-center p-[20px]">
-            <h2 className="text-[30px] font-bold p-[15px]">Register</h2>
-            <img src="/assets/img/avartar.jpg" className="h-[200px] my-[15px]" />
-          </header>
-          <form onSubmit={handleSubmit} className="grid justify-items-center grid-cols-1 gap-[18px]">
-            <div>
-              <label>
-                <p>Display name</p>
+    <div className="w-full h-full bg-registerBg bg-cover">
+      <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
+      <div className="w-full h-screen backdrop-blur-sm">
+        <div className="box-content max-w-[1440px] mx-auto flex items-center ">
+          <div className="form-container w-full h-auto rounded-[20px] bg-white/50 my-[60px] p-[40px]">
+            <p className="w-full mb-[60px] text-[40px] text-center text-orange">
+              &ldquo; ยินดีต้อนรับเข้าสู่ EazyEat &rdquo;
+            </p>
+            <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleSubmit}>
+              <div>
+                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="displayname">
+                  ชื่อ:
+                </label>
                 <input
+                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
                   type="text"
+                  id="displayname"
                   value={displayNameInput}
                   onChange={(e) => setDisplayNameInput(e.target.value)}
-                  className="h-[32px] w-[400px] rounded-[50px] p-[10px]"
+                  placeholder="ชื่อ..."
                   required
                 />
-              </label>
-            </div>
-            <div>
-              <label>
-                <p>Username</p>
+              </div>
+              <div>
+                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="username">
+                  ชื่อผู้ใช้:
+                </label>
                 <input
+                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
                   type="text"
+                  id="username"
                   value={usernameInput}
                   onChange={(e) => setUsernameInput(e.target.value)}
-                  className="h-[32px] w-[400px] rounded-[50px] p-[10px]"
+                  placeholder="ชื่อผู้ใช้..."
                   required
                 />
-              </label>
-            </div>
-            <div>
-              <label>
-                <p>Password</p>
+              </div>
+              <div>
+                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="password">
+                  รหัสผ่าน:
+                </label>
                 <input
+                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
                   type="password"
+                  id="password"
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
-                  className="h-[32px] w-[400px] rounded-[50px] p-[10px]"
+                  placeholder="รหัสผ่าน..."
                   required
                 />
-              </label>
-            </div>
-            <button
-              type="submit"
-              value="submit"
-              className="box-border h-[50px] w-[150px] text-white text-l hover:text-xl font-bold p-[2px] m-10 rounded-[50px]
-                          bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
+              </div>
+              <div>
+                <button
+                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-xl hover:text-xl bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
                         hover:from-[#c1f31f] hover:to-[#4ccf20]"
-            >
-              Register
-            </button>
-          </form>
-          <div className="grid justify-items-center mb-[55px]">
-            <div className="inline-flex gap-[15px]">
-              <p>Already have an account?</p>
-              <Link to={'/auth/login'}>
-                <button className="text-[#382b98] italic hover:text-[#FF8C32]">Login</button>
-              </Link>
+                  type="submit"
+                >
+                  สมัครสมาชิก
+                </button>
+              </div>
+            </form>
+            <div className="flex justify-center items-center pt-[30px]">
+              <div className="inline-flex gap-[15px]">
+                <p>คุณมีบัญชีแล้วใช่ไหม?</p>
+                <Link to={'/auth/login'}>
+                  <button className="text-[#382b98] italic hover:text-orange">เข้าสู่ระบบ</button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div className="bottom-0 box-content bg-white w-full h-[50px] rounded-t-[100%]" />
     </div>
   )
 }
