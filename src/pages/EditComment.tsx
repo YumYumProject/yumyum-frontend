@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
 import { host } from '../constant'

@@ -75,6 +75,7 @@ const IndividualMenu = () => {
             <p className="font-bold text-[18px]">
               <span className="text-[30px]">{content.average_rating}</span> /5
             </p>
+
             <ReactStars
               key={content.average_rating}
               count={5}

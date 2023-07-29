@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import ReactStars from 'react-stars'
 import { IContent } from '../types/types'
@@ -10,7 +9,7 @@ interface MenuCardProps {
 const MenuCard = ({ menu }: MenuCardProps) => {
   return (
     <Link
-      className="box-content w-full h-[400px] bg-white/90 rounded-2xl flex flex-col justify-end items-center transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 border-4 hover:border-[#FFA559] hover:shadow-[#FFA559]/50"
+      className="box-content w-full h-[400px]  bg-white/90 rounded-2xl flex flex-col justify-end items-center transition ease-in-out delay-150 hover:-translate-y-0 hover:scale-105 duration-150 border-4 hover:border-[#FFA559] hover:shadow-[#FFA559]/50"
       to={`/menu/${menu._id}`}
     >
       {/* <div className="box-content w-full h-full  overflow-auto items-center"> */}

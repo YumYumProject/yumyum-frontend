@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaWeightScale } from 'react-icons/fa6'
 
 const Sample = () => {

@@ -11,7 +11,7 @@ import IndividualMenu from './pages/IndividualMenu'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Sample from './pages/Sample'
-import { default as Search } from './pages/Search'
+import Search from './pages/Search'
 import { useAuth } from './providers/AuthProviders'
 
 function App() {

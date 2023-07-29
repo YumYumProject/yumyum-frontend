@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { host } from '../constant'
 import { Loading } from '../components/Loading'
@@ -171,7 +171,7 @@ const Search = () => {
           </form>
         </div>
         <hr className="w-full border-1 border-orange" />
-        <div className="menu-list w-[1440px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-[30px] gap-y-[50px] px-[60px] py-[60px] mt-[32px] mb-[50px] rounded-[20px] bg-white/50 ">
+        <div className="menu-list max-w-[1440px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-[20px] gap-y-[50px] px-[60px] py-[60px] mt-[32px] mb-[50px] rounded-[20px] bg-white/50 ">
           {!contentList ? (
             <p>ไม่พบข้อมูลที่คุณค้นหา</p>
           ) : (

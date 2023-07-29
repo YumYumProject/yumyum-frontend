@@ -1,4 +1,3 @@
-import React from 'react'
 import { IComment } from '../types/types'
 import { Link, useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'

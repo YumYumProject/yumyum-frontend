@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { host } from '../types/host'
+import { host } from '../constant'
 import { IComment } from '../types/types'
 
 interface IAuthContext {
