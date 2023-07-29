@@ -42,14 +42,14 @@ const Register = () => {
   }
 
   return (
-    <div className="bg-center bg-cover bg-registerBg">
-      <div className="flex justify-center">
-        <div className="bg-gradient-to-r from-red-50/50 to-zinc-500/20 h-auto w-[800px] rounded-[35px] grid justify-items-center">
-          <header className="grid justify-items-center p-[20px]">
-            <h2 className="text-[30px] font-bold p-[15px]">Register</h2>
-            <img src="/assets/img/avartar.jpg" className="h-[200px] my-[15px]" />
+    <div className="h-[700px] min-w-full bg-center bg-cover bg-registerBg">
+      <div className="flex justify-center content-center p-[1%]">
+        <div className="bg-gradient-to-r from-red-50/50 to-zinc-500/20 h-[660px] w-[30%] rounded-[35px] grid justify-items-center content-evenly">
+          <header className="grid justify-items-center gap-[5%]">
+            <h2 className="text-[30px] font-bold">Register</h2>
+            <img src="/assets/img/avartar.jpg" className="h-[150px] w-auto" />
           </header>
-          <form onSubmit={handleSubmit} className="grid justify-items-center grid-cols-1 gap-[18px]">
+          <form onSubmit={handleSubmit} className="grid justify-items-center grid-cols-1 gap-[7%]">
             <div>
               <fieldset>
                 <label>
@@ -58,7 +58,7 @@ const Register = () => {
                     type="text"
                     value={displayNameInput}
                     onChange={(e) => setDisplayNameInput(e.target.value)}
-                    className="h-[32px] w-[400px] rounded-[50px] p-[10px]"
+                    className="h-[32px] w-[400px] rounded-[50px] p-[2.5%]"
                     required
                   />
                 </label>
@@ -72,7 +72,7 @@ const Register = () => {
                     type="text"
                     value={usernameInput}
                     onChange={(e) => setUsernameInput(e.target.value)}
-                    className="h-[32px] w-[400px] rounded-[50px] p-[10px]"
+                    className="h-[32px] w-[400px] rounded-[50px] p-[2.5%]"
                     required
                   />
                 </label>
@@ -86,7 +86,7 @@ const Register = () => {
                     type="password"
                     value={passwordInput}
                     onChange={(e) => setPasswordInput(e.target.value)}
-                    className="h-[32px] w-[400px] rounded-[50px] p-[10px]"
+                    className="h-[32px] w-[400px] rounded-[50px] p-[2.5%]"
                     required
                   />
                 </label>
@@ -95,12 +95,12 @@ const Register = () => {
             <button
               type="submit"
               value="submit"
-              className="bg-[#FF9642] h-[50px] w-[150px] m-10 rounded-[50px] drop-shadow-xl focus:bg-white"
+              className="bg-[#FF9642] h-[50px] w-[150px] rounded-[50px] drop-shadow-xl focus:bg-white"
             >
               Register
             </button>
           </form>
-          <div className="grid justify-items-center mb-[55px]">
+          <div className="w-[100%] grid justify-items-center p-[2%]">
             <div className="inline-flex gap-[15px]">
               <p>Already have an account?</p>
               <Link to={'/auth/login'}>

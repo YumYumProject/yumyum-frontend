@@ -16,7 +16,7 @@ const HomeTest = () => {
   return (
     <div>
       <div className="bg-top bg-scroll bg-cover bg-testH1 h-[600px] min-w-full">
-        <div className="h-[600px] w-auto grid justify-items-end py-[5%] px-[2%]">
+        <div className="h-[600px] w-auto grid justify-items-end content-center py-[15%] px-[12%]">
           <header className="grid grid-cols-1 py-[14%] ">
             <h3 className="text-[34px] font-bold">เลือกเมนูตามใจคุณกับ EazyEat</h3>
             <h3 className="text-[22px]">จากวัตถุดิบในครัว สู่อาหารจานพิเศษที่คัดสรรมาเพื่อคุณ</h3>
@@ -56,8 +56,8 @@ const HomeTest = () => {
           </div>
         </main>
       </section>
-      <main className="bg-center bg-scroll bg-cover bg-testH2 h-[600px] min-w-full grid justify-items-end px-[1%]">
-        <div className="grid grid-cols-3 justify-items-end items-center content-between mx-[1.5%] my-[4%] gap-3">
+      <main className="bg-center bg-scroll bg-cover bg-testH2 h-[600px] min-w-full grid justify-items-end px-[4%]">
+        <div className="grid grid-cols-3 justify-items-end items-center content-between mx-[1.5%] my-[4%] gap-[30%]">
           <h1 className="col-span-3 text-[38px] font-bold text-[#ffffff]">เลือกสรรเมนูกับ EazyEat</h1>
           <section className="box-border h-[240px] w-[240px] rounded-[30px] bg-red-50/60 p-10 border-1 grid grid-cols-1 gap-1 justify-items-center content-end">
             <img src="/assets/img/image-home-prepare.png" className="mb-[41px]" />
