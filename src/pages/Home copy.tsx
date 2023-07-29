@@ -1,72 +1,57 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-// link login,logout + register
-// bg full image
-// 1 container for all main home subject
-// 3 inner containers horizontal : header, details, button
-
-// example for image upper container className='relative -right-6 -top-40'
-
 const HomeTest = () => {
   const navigate = useNavigate()
 
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    return navigate(`/menu`)
+    return navigate('/menu')
   }
 
   // แก้พื้นหลัง หาบีจีฟรีมาใส่แทนให้เหมือนกันทุกหน้า
   // หน้าโฮมเอารูปอาหารมาเล่น ทำเป็นรูปสไลด์ feel like banner
-  // สร้างช่องอธิบายเพิ่มว่าเราทำอะไรได้บ้าง
-  // ข้อความบนๆก็ใส่พวกคีย์เวิร์ดหลักสำคัญ แล้วลิ้งกับสิ่งที่เราสร้างบรรทัด 22
-
   // bg-gradient-to-r from-red-50/50 to-zinc-500/20 rounded-[35px]
 
   return (
     <div>
-      <div className="bg-top bg-scroll bg-cover bg-testH1 h-[600px] w-auto">
-        <div className="flex justify-center">
-          <main className="h-[880px] w-auto my-10 ml-[500px] grid justify-items-center">
-            <header className="box-border h-auto w-[650px] ml-[90%] my-[25%] gap-[2px] items-center">
-              <h3 className="text-[38px] font-bold">เลือกเมนูตามใจคุณกับ EazyEat</h3>
-              <h3 className="text-[28px]">จากวัตถุดิบในครัว สู่อาหารจานพิเศษที่คัดสรรมาเพื่อคุณ</h3>
-              <button
-                type="button"
-                onClick={handleClick}
-                className="box-border h-[50px] w-[150px] text-white text-[18px] font-bold p-[2px] my-5 rounded-[50px]
+      <div className="bg-top bg-scroll bg-cover bg-testH1 h-[600px] min-w-full">
+        <div className="h-[600px] w-auto grid justify-items-end py-[5%] px-[2%]">
+          <header className="grid grid-cols-1 py-[14%] ">
+            <h3 className="text-[34px] font-bold">เลือกเมนูตามใจคุณกับ EazyEat</h3>
+            <h3 className="text-[22px]">จากวัตถุดิบในครัว สู่อาหารจานพิเศษที่คัดสรรมาเพื่อคุณ</h3>
+            <button
+              type="button"
+              onClick={handleClick}
+              className="box-border h-[50px] w-[150px] text-white text-[16px] font-bold p-[2px] my-5 rounded-[50px]
                 bg-[#FF9642] hover:bg-[#7dac59] drop-shadow-xl"
-              >
-                เริ่มกันเลย!!
-              </button>
-            </header>
-          </main>
+            >
+              เริ่มกันเลย!!
+            </button>
+          </header>
         </div>
       </div>
       <section>
-        <main className="bg-[#f0f0f0]/30 h-[600px] w-auto grid justify-items-start">
-          <div className="flex flex-row-reverse">
-            <img
-              src="assets\img\pexels-steve-3789885.jpg"
-              className="h-[450px] w-[500px] my-[4%] mr-[1%] drop-shadow-2xl"
-            />
-            <div className="ml-[6%]">
-              <h1 className=" mt-[9%] mb-[5%] ml-[6%] text-[40px] font-bold text-[#000000]">เกี่ยวกับเรา</h1>
-              <header className="h-[500px] w-[1240px] mx-[6%] items-center">
-                <span className="flex flex-inline text-[#000000] text-[22px] items-center">
-                  <p>
-                    <h5 className="text-[30px] font-bold">ยินดีต้อนรับเข้าสู่ EazyEat!!</h5>
-                    <br />
-                    หากคุณต้องการ เลือกสรรเมนูที่ชอบ วัตถุดิบที่ใช่ เราช่วยคุณได้
-                    <br />
-                    มาทำให้การเลือกเมนูอาหารง่ายขึ้นแบบอีซี่ๆ เราใส่ใจทุกกระบวนการเลือกสรร
-                    <br />
-                    แม้ว่าคุณจะแพ้อาหารประเภทใด ปัญหาสุขภาพแบบไหน วางใจ EazyEat คัดสรรอาหารจานพิเศษด้วยใจมาเพื่อคุณ
-                    <br />
-                    มาทำให้มื้ออาหารของคุณเต็มไปด้วยความสุขที่ดีที่สุดที่ EazyEat
-                  </p>
-                </span>
-              </header>
+        <main className="bg-[#f0f0f0]/30 h-[600px] min-w-full">
+          <div className="h-[600px] w-auto p-[2%] gap-[5%] flex flex-row-reverse items-center justify-center content-between">
+            <img src="assets\img\pexels-steve-3789885.jpg" className="h-[450px] w-auto drop-shadow-2xl" />
+            <div className="h-[400px] w-[60] grid content-around">
+              <h1 className="text-[34px] font-bold text-[#000000]">เกี่ยวกับเรา</h1>
+              <span className="flex flex-inline text-[#000000] text-[18px] items-center">
+                <p>
+                  <h5 className="text-[24px] font-bold">ยินดีต้อนรับเข้าสู่ EazyEat!!</h5>
+                  <br />
+                  หากคุณต้องการ เลือกสรรเมนูที่ชอบ วัตถุดิบที่ใช่ เราช่วยคุณได้
+                  <br />
+                  มาทำให้การเลือกเมนูอาหารง่ายขึ้นแบบอีซี่ๆ เราใส่ใจทุกกระบวนการเลือกสรร
+                  <br />
+                  แม้ว่าคุณจะแพ้อาหารประเภทใด ปัญหาสุขภาพแบบไหน
+                  <br />
+                  วางใจ EazyEat เราคัดสรรอาหารจานพิเศษด้วยใจมาเพื่อคุณ
+                  <br />
+                  มาทำให้มื้ออาหารของคุณเต็มไปด้วยความสุขที่ดีที่สุดที่ EazyEat
+                </p>
+              </span>
             </div>
           </div>
         </main>

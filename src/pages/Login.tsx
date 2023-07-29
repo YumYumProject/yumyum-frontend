@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react'
 import { useAuth } from '../providers/AuthProviders'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Login = () => {
   const { login } = useAuth()
@@ -15,6 +16,7 @@ const Login = () => {
       await login(usernameInput, passwordInput)
 
       navigate('/')
+      toast.success('Login success!')
     } catch (err) {
       console.log(`${err}.message`)
     }

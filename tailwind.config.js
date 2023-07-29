@@ -7,7 +7,7 @@ export default {
         homeBg: "url('/assets/img/img-bg-home.jpg')",
         searchBg: "url('/assets/img/img-bg-search.jpg')",
         registerBg: "url('/assets/img/reeeeee.jpg')",
-        loginBg: "url('/assets/img/loooogin.jpg')",
+        loginBg: "url('/assets/img/copy-space-italian-food-ingredients.jpg')",
         testH1: "url('/assets/img/testhome1.jpg')",
         testH2: "url('/assets/img/testhome2.jpg')",
         testH3: "url('/assets/img/bgbgbgbg.jpg')",
