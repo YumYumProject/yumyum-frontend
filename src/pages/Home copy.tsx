@@ -56,59 +56,61 @@ const HomeTest = () => {
           </div>
         </main>
       </section>
-      <main className="bg-center bg-scroll bg-cover bg-testH2 h-[600px] w-auto flex justify-end flex-col gap-[50px]">
-        <h1 className="my-10 ml-[57%] text-[48px] font-bold text-[#ffffff]">เลือกสรรเมนูกับ EazyEat</h1>
-        <div className="flex justify-end mb-[2%] mr-[2%]">
-          <section className="box-border h-[260px] w-[260px] rounded-[30px] bg-red-50/60 p-10 border-1 m-10 grid grid-cols-1 gap-1 justify-items-center content-end">
+      <main className="bg-center bg-scroll bg-cover bg-testH2 h-[600px] min-w-full grid justify-items-end px-[1%]">
+        <div className="grid grid-cols-3 justify-items-end items-center content-between mx-[1.5%] my-[4%] gap-3">
+          <h1 className="col-span-3 text-[38px] font-bold text-[#ffffff]">เลือกสรรเมนูกับ EazyEat</h1>
+          <section className="box-border h-[240px] w-[240px] rounded-[30px] bg-red-50/60 p-10 border-1 grid grid-cols-1 gap-1 justify-items-center content-end">
             <img src="/assets/img/image-home-prepare.png" className="mb-[41px]" />
-            <div className="grid justify-items-center mb-[2%]">
+            <div className="grid justify-items-center">
               <h3 className="text-[34px] font-bold text-[#000000]">จัดเตรียม</h3>
               <p className="text-[20px] text-[#000000]/80">วัตถุดิบให้พร้อม</p>
             </div>
           </section>
-          <section className="box-border h-[260px] w-[260px] rounded-[30px] bg-red-50/60 p-10 border-1 m-10 grid grid-cols-1 gap-1 justify-items-center content-end">
+          <section className="box-border h-[240px] w-[240px] rounded-[30px] bg-red-50/60 p-10 border-1 grid grid-cols-1 gap-1 justify-items-center content-end">
             <img src="/assets/img/image home-select.png" className="mb-[41px]" />
-            <div className="grid justify-items-center mb-[2%]">
+            <div className="grid justify-items-center">
               <h3 className="text-[34px] font-bold text-[#000000]">เลือกดู</h3>
               <p className="text-[20px] text-[#000000]/80">เมนูได้ตามใจชอบ</p>
             </div>
           </section>
-          <section className="box-border h-[260px] w-[260px] rounded-[30px] bg-red-50/60 p-10 border-1 m-10 grid grid-cols-1 gap-1 justify-items-center content-end">
-            <img src="/assets/img/image home-enjoy.png" className="mb-[34px] ml-[90px]" />
-            <div className="grid justify-items-center mb-[2%]">
+          <section className="box-border h-[240px] w-[240px] rounded-[30px] bg-red-50/60 p-10 border-1 grid grid-cols-1 gap-1 justify-items-center content-end">
+            <img src="/assets/img/image home-enjoy.png" className="mb-[34px] ml-[77px]" />
+            <div className="grid justify-items-center">
               <h3 className="text-[34px] font-bold text-[#000000]">สนุกสนาน</h3>
               <p className="text-[20px] text-[#000000]/80">ไปกับการทำอาหาร</p>
             </div>
           </section>
         </div>
       </main>
-      <main className="h-[700px] w-auto flex items-center flex-col">
-        <h1 className="mt-10 text-[48px] font-bold text-[#0000000]">POPULAR MENU</h1>
-        <div className="flex justify-center">
-          <section className="box-border h-[460px] w-[380px] rounded-[30px] bg-[#e3bb1d] p-7 border-1 m-10 grid grid-cols-1 gap-1 justify-items-center content-end">
-            <img src="/assets/img/pop1.jpg" className="mb-[10px] h-[320px] w-auto" />
-            <div className="grid justify-items-center mb-[2%]">
-              <h3 className="text-[30px] font-bold text-[#000000]">Menu name</h3>
-              <p className="text-[20px] text-[#000000]/80">Rating</p>
-            </div>
-          </section>
-          <section className="box-border h-[460px] w-[380px] rounded-[30px] bg-[#e3bb1d] p-7 border-1 m-10 grid grid-cols-1 gap-1 justify-items-center content-end">
-            <img src="/assets/img/pop2.jpg" className="mb-[10px] h-[320px] w-auto" />
-            <div className="grid justify-items-center mb-[2%]">
-              <h3 className="text-[30px] font-bold text-[#000000]">Menu name</h3>
-              <p className="text-[20px] text-[#000000]/80">Rating</p>
-            </div>
-          </section>
-          <section className="box-border h-[460px] w-[380px] rounded-[30px] bg-[#e3bb1d] p-7 border-1 m-10 grid grid-cols-1 gap-1 justify-items-center content-end">
-            <img src="/assets/img/pop3.jpg" className="mb-[10px] h-[320px] w-auto" />
-            <div className="grid justify-items-center mb-[2%]">
-              <h3 className="text-[30px] font-bold text-[#000000]">Menu name</h3>
-              <p className="text-[20px] text-[#000000]/80">Rating</p>
-            </div>
-          </section>
+      <main className="h-[600px] min-w-full grid justify-items-center p-[2%]">
+        <div className="h-[550px] w-auto flex justify-center items-center gap-4 flex-col">
+          <h1 className="text-[38px] font-bold text-[#0000000]">POPULAR MENU</h1>
+          <div className="flex justify-center gap-10">
+            <section className="h-[440px] w-[300px] rounded-[30px] bg-[#e3bb1d] p-7 grid grid-cols-1 justify-items-center content-end">
+              <img src="/assets/img/pop1.jpg" className="mb-[10px] h-[320px] w-auto" />
+              <div className="grid justify-items-center mb-[2%]">
+                <h3 className="text-[30px] font-bold text-[#000000]">Menu name</h3>
+                <p className="text-[20px] text-[#000000]/80">Rating</p>
+              </div>
+            </section>
+            <section className="h-[440px] w-[300px] rounded-[30px] bg-[#e3bb1d] p-7 grid grid-cols-1 justify-items-center content-end">
+              <img src="/assets/img/pop2.jpg" className="mb-[10px] h-[320px] w-auto" />
+              <div className="grid justify-items-center mb-[2%]">
+                <h3 className="text-[30px] font-bold text-[#000000]">Menu name</h3>
+                <p className="text-[20px] text-[#000000]/80">Rating</p>
+              </div>
+            </section>
+            <section className="h-[440px] w-[300px] rounded-[30px] bg-[#e3bb1d] p-7 grid grid-cols-1 justify-items-center content-end">
+              <img src="/assets/img/pop3.jpg" className="mb-[10px] h-[320px] w-auto" />
+              <div className="grid justify-items-center mb-[2%]">
+                <h3 className="text-[30px] font-bold text-[#000000]">Menu name</h3>
+                <p className="text-[20px] text-[#000000]/80">Rating</p>
+              </div>
+            </section>
+          </div>
         </div>
       </main>
-      <div className="bg-center bg-scroll bg-cover bg-testH3 h-[900px] w-auto py-5">
+      <div className="bg-center bg-scroll bg-cover bg-testH3 h-[900px] min-w-full p-5">
         <div className="grid justify-items-center">
           <h3 className="text-[38px] font-bold my-5">GALLERY</h3>
           <div className="bg-red-50/60 h-[700px] w-[1000px] grid justify-items-center items-center rounded-[30px]">
