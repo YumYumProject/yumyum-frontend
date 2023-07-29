@@ -11,6 +11,10 @@ export default {
         individualMenuBg: "url('/assets/img/img-bg-individual-menu.jpg')",
         registerBg: "url('/assets/img/img-bg-register.jpg')",
         loginBg: "url('/assets/img/img-bg-login.jpg')",
+        testH1: "url('/assets/img/testhome1.jpg')",
+        testH2: "url('/assets/img/testhome2.jpg')",
+        testH3: "url('/assets/img/bgbgbgbg.jpg')",
+        testH4: "url('/assets/img/various-vegetables-black-table-with-space-message.jpg')",
       },
       colors: {
         bb: '#243c5a',
