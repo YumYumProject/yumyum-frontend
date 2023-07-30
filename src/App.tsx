@@ -10,7 +10,6 @@ import Home from './pages/Home'
 import IndividualMenu from './pages/IndividualMenu'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import Sample from './pages/Sample'
 import Search from './pages/Search'
 import { useAuth } from './providers/AuthProviders'
 
@@ -22,7 +21,6 @@ function App() {
       <Navbar />
       <Toaster position="top-center" />
       <Routes>
-        <Route path="/sample" element={<Sample />} />
         <Route path="/menu" element={<Search />} />
         <Route path="/menu/:_id" element={<IndividualMenu />} />
         <Route path="/menu/:_id/create" element={<CreateComment />} />

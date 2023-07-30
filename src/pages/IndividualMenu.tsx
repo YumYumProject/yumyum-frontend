@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import { FaWeightScale } from 'react-icons/fa6'
 import { Link, useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
@@ -86,15 +85,15 @@ const IndividualMenu = () => {
               />
             </div>
             <div>
-              {/* {isLoggedIn && ( */}
-              <Link
-                className="text-[16px] font-medium px-5 py-2.5 text-white rounded-full drop-shadow-xl hover:text-xl bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
+              {isLoggedIn && (
+                <Link
+                  className="text-[16px] font-medium px-5 py-2.5 text-white rounded-full drop-shadow-xl hover:text-xl bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
                         hover:from-[#c1f31f] hover:to-[#4ccf20]"
-                to={`/menu/${_id}/create`}
-              >
-                เพิ่มความคิดเห็น
-              </Link>
-              {/* )} */}
+                  to={`/menu/${_id}/create`}
+                >
+                  เพิ่มความคิดเห็น
+                </Link>
+              )}
             </div>
           </div>
           <div className=" items-center pb-[50px] w-full ">

@@ -47,25 +47,25 @@ const CommentCard = ({ comment, contentId }: CommentCardProps) => {
           <p>&ldquo; {comment.description} &rdquo;</p>
         </div>
         <div className="flex gap-5">
-          {/* {isOwnComment && isOwnComment(comment!) && ( */}
-          <>
-            <Link
-              className="flex justify-center items-center gap-[6px] text-[14px] font-medium hover:text-orange"
-              to={`/menu/${contentId}/edit/${comment._id}`}
-            >
-              <RiEdit2Fill className="text-orange" />
-              <p>แก้ไข</p>
-            </Link>
-            <p>|</p>
-            <button
-              className="flex justify-center items-center gap-[6px] text-[14px] font-medium hover:text-orange"
-              onClick={handleDelete}
-            >
-              <RiDeleteBin5Fill className="text-orange" />
-              ลบ
-            </button>
-          </>
-          {/* )} */}
+          {isOwnComment && isOwnComment(comment) && (
+            <>
+              <Link
+                className="flex justify-center items-center gap-[6px] text-[14px] font-medium hover:text-orange"
+                to={`/menu/${contentId}/edit/${comment._id}`}
+              >
+                <RiEdit2Fill className="text-orange" />
+                <p>แก้ไข</p>
+              </Link>
+              <p>|</p>
+              <button
+                className="flex justify-center items-center gap-[6px] text-[14px] font-medium hover:text-orange"
+                onClick={handleDelete}
+              >
+                <RiDeleteBin5Fill className="text-orange" />
+                ลบ
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>
