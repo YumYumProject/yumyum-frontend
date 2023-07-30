@@ -1,18 +1,7 @@
-import { useState, FormEvent } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { FormEvent, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProviders'
 import { toast } from 'react-hot-toast'
-
-/* 
-
-interface IUser extends Document {
-  id: ObjectId;
-  username: string;
-  password: string;
-  display_name: string;
-}
-
-*/
 
 const Register = () => {
   const navigate = useNavigate()
@@ -21,92 +10,89 @@ const Register = () => {
   const [passwordInput, setPasswordInput] = useState<string>('')
   const [displayNameInput, setDisplayNameInput] = useState<string>('')
 
-  // click to submit, then go to login page
-  // user data must match with backend request
-  // need useState, useEffect
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    // Register completed > automatically to login page? or Homepage
 
     try {
       await register(displayNameInput, usernameInput, passwordInput)
       await login(usernameInput, passwordInput)
 
       navigate('/')
-      toast.success('Register success!')
+      toast.success('สมัครสมาชิกเรีบร้อยแล้ว!')
     } catch (err) {
       console.log(`${err}.message`)
     }
   }
 
   return (
-    <div className="h-[700px] min-w-full bg-center bg-cover bg-registerBg">
+    <div className="w-full h-full bg-registerBg bg-cover">
       <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
-      <div className="flex justify-center content-center p-[1%]">
-        <div className="bg-gradient-to-r from-red-50/50 to-zinc-500/20 h-[660px] w-[30%] rounded-[35px] grid justify-items-center content-evenly">
-          <header className="grid justify-items-center gap-[5%]">
-            <h2 className="text-[30px] font-bold">Register</h2>
-            <img src="/assets/img/avartar.jpg" className="h-[150px] w-auto" />
-          </header>
-          <form onSubmit={handleSubmit} className="grid justify-items-center grid-cols-1 gap-[7%]">
-            <div>
-              <fieldset>
-                <label>
-                  <p>Display name</p>
-                  <input
-                    type="text"
-                    value={displayNameInput}
-                    onChange={(e) => setDisplayNameInput(e.target.value)}
-                    className="h-[32px] w-[400px] rounded-[50px] p-[2.5%]"
-                    required
-                  />
+      <div className="w-full h-screen backdrop-blur-sm">
+        <div className="box-content max-w-[1280px] mx-auto flex items-center ">
+          <div className="form-container flex flex-col w-full h-auto rounded-[20px] bg-white/50 my-[60px] p-[40px]">
+            <p className="w-full mb-[40px] text-[40px] text-center text-orange">
+              &ldquo; สมัครสมาชิกกับ EazyEat &rdquo;
+            </p>
+            <img src="/assets/img/avartar.jpg" className="h-[150px] w-[140px] mx-auto rounded-[20px] mb-[20px]" />
+            <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleSubmit}>
+              <div>
+                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="displayname">
+                  ชื่อ:
                 </label>
-              </fieldset>
-            </div>
-            <div>
-              <fieldset>
-                <label>
-                  <p>Username</p>
-                  <input
-                    type="text"
-                    value={usernameInput}
-                    onChange={(e) => setUsernameInput(e.target.value)}
-                    className="h-[32px] w-[400px] rounded-[50px] p-[2.5%]"
-                    required
-                  />
+                <input
+                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
+                  type="text"
+                  id="displayname"
+                  value={displayNameInput}
+                  onChange={(e) => setDisplayNameInput(e.target.value)}
+                  placeholder="ชื่อ..."
+                  required
+                />
+              </div>
+              <div>
+                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="username">
+                  ชื่อผู้ใช้:
                 </label>
-              </fieldset>
-            </div>
-            <div>
-              <fieldset>
-                <label>
-                  <p>Password</p>
-                  <input
-                    type="password"
-                    value={passwordInput}
-                    onChange={(e) => setPasswordInput(e.target.value)}
-                    className="h-[32px] w-[400px] rounded-[50px] p-[2.5%]"
-                    required
-                  />
+                <input
+                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
+                  type="text"
+                  id="username"
+                  value={usernameInput}
+                  onChange={(e) => setUsernameInput(e.target.value)}
+                  placeholder="ชื่อผู้ใช้..."
+                  required
+                />
+              </div>
+              <div>
+                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="password">
+                  รหัสผ่าน:
                 </label>
-              </fieldset>
-            </div>
-            <button
-              type="submit"
-              value="submit"
-              className="bg-[#FF9642] h-[50px] w-[150px] rounded-[50px] drop-shadow-xl focus:bg-white"
-            >
-              Register
-            </button>
-          </form>
-          <div className="w-[100%] grid justify-items-center p-[2%]">
-            <div className="inline-flex gap-[15px]">
-              <p>Already have an account?</p>
-              <Link to={'/auth/login'}>
-                <button className="text-[#382b98] italic hover:text-[#FF8C32]">Login</button>
-              </Link>
+                <input
+                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
+                  type="password"
+                  id="password"
+                  value={passwordInput}
+                  onChange={(e) => setPasswordInput(e.target.value)}
+                  placeholder="รหัสผ่าน..."
+                  required
+                />
+              </div>
+              <div>
+                <button
+                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-sm bg-[#FF9642] hover:bg-[#7dac59]"
+                  type="submit"
+                >
+                  สมัครสมาชิก
+                </button>
+              </div>
+            </form>
+            <div className="flex justify-center items-center pt-[30px]">
+              <div className="inline-flex gap-[15px]">
+                <p>คุณมีบัญชีแล้วใช่ไหม?</p>
+                <Link to={'/auth/login'}>
+                  <button className="text-orange italic hover:text-[#7dac59]">เข้าสู่ระบบ</button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

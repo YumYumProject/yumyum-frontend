@@ -20,7 +20,7 @@ const IndividualMenu = () => {
     <div className="w-full h-full bg-individualMenuBg bg-cover">
       <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
       <div className="w-full h-full backdrop-blur-sm">
-        <div className="card max-w-[1440px] mx-auto px-[16px] flex flex-col justify-center items-center">
+        <div className="card max-w-[1280px] mx-auto px-[16px] flex flex-col justify-center items-center">
           <div className="contianer-menu relative box-border w-full h-auto flex justify-center mt-[60px]">
             <img
               className="absolute object-fill w-[990px] h-[660px] rounded-[20px] drop-shadow-xl"
@@ -87,8 +87,7 @@ const IndividualMenu = () => {
             <div>
               {isLoggedIn && (
                 <Link
-                  className="text-[16px] font-medium px-5 py-2.5 text-white rounded-full drop-shadow-xl hover:text-xl bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
-                        hover:from-[#c1f31f] hover:to-[#4ccf20]"
+                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-sm bg-[#FF9642] hover:bg-[#7dac59]"
                   to={`/menu/${_id}/create`}
                 >
                   เพิ่มความคิดเห็น

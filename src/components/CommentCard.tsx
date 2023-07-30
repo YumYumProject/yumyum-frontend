@@ -27,7 +27,7 @@ const CommentCard = ({ comment, contentId }: CommentCardProps) => {
         },
       })
 
-      toast.success('ความคิดเห็นของคุณถูกลบ!')
+      toast.success('ความคิดเห็นของคุณถูกลบแล้ว!')
       location.reload()
     } catch (err: any) {
       toast.error(err.message)

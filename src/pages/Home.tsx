@@ -1,8 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import MenuRankingCard from '../components/MenuRankingCard'
+import useMenuRankingList from '../hooks/useMenuRankingList'
 
 const Home = () => {
   const navigate = useNavigate()
+  const { menuRankingList } = useMenuRankingList()
 
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
@@ -14,48 +17,40 @@ const Home = () => {
   // bg-gradient-to-r from-red-50/50 to-zinc-500/20 rounded-[35px]
 
   return (
-    <div>
-      <div className="bg-top bg-scroll bg-cover bg-testH1 h-[600px] min-w-full">
-        <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
-        <div className="h-[600px] w-auto grid justify-items-end content-center py-[15%] px-[12%]">
-          <header className="grid grid-cols-1 py-[14%] ">
+    <div className="bg-white">
+      <div className="bg-top bg-scroll bg-cover bg-testH1 h-[600px] w-full flex flex-col items-center gap-[200px]">
+        <div className="top-0 box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
+        <div className="w-[1280px] px-[16px]">
+          <header className="flex flex-col justify-center items-start border-box w-[45%] mx-auto mr-0">
             <h3 className="text-[34px] font-bold">เลือกเมนูตามใจคุณกับ EazyEat</h3>
             <h3 className="text-[22px]">จากวัตถุดิบในครัว สู่อาหารจานพิเศษที่คัดสรรมาเพื่อคุณ</h3>
             <button
               type="button"
               onClick={handleClick}
-              className="box-border h-[50px] w-[150px] text-white text-[16px] font-bold p-[2px] my-5 rounded-[50px]
-                bg-[#FF9642] hover:bg-[#7dac59] drop-shadow-xl"
+              className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-sm bg-[#FF9642] hover:bg-[#7dac59]"
             >
               เริ่มกันเลย!!
             </button>
           </header>
         </div>
       </div>
-      <section>
-        <main className="bg-[#f0f0f0]/30 h-[600px] min-w-full">
-          <div className="h-[600px] w-auto p-[2%] gap-[5%] flex flex-row-reverse items-center justify-center content-between">
-            <img src="assets\img\pexels-steve-3789885.jpg" className="h-[450px] w-auto drop-shadow-2xl" />
-            <div className="h-[400px] w-[60] grid content-around">
-              <h1 className="text-[34px] font-bold text-[#000000]">เกี่ยวกับเรา</h1>
-              <span className="flex flex-inline text-[#000000] text-[18px] items-center">
-                <p>
-                  <h5 className="text-[24px] font-bold">ยินดีต้อนรับเข้าสู่ EazyEat!!</h5>
-                  <br />
-                  หากคุณต้องการ เลือกสรรเมนูที่ชอบ วัตถุดิบที่ใช่ เราช่วยคุณได้
-                  <br />
-                  มาทำให้การเลือกเมนูอาหารง่ายขึ้นแบบอีซี่ๆ เราใส่ใจทุกกระบวนการเลือกสรร
-                  <br />
-                  แม้ว่าคุณจะแพ้อาหารประเภทใด ปัญหาสุขภาพแบบไหน
-                  <br />
-                  วางใจ EazyEat เราคัดสรรอาหารจานพิเศษด้วยใจมาเพื่อคุณ
-                  <br />
-                  มาทำให้มื้ออาหารของคุณเต็มไปด้วยความสุขที่ดีที่สุดที่ EazyEat
-                </p>
-              </span>
-            </div>
-          </div>
-        </main>
+      <section className="max-w-[1280px] px-[16px] py-[30px] flex justify-around items-center mx-auto">
+        <div className="flex flex-col gap-[10px]">
+          <p className="text-[34px] font-bold">เกี่ยวกับเรา</p>
+          <p className="text-[24px] font-bold">ยินดีต้อนรับเข้าสู่ EazyEat!!</p>
+          <p className="text-[18px]">
+            หากคุณต้องการ เลือกสรรเมนูที่ชอบ วัตถุดิบที่ใช่ เราช่วยคุณได้
+            <br />
+            มาทำให้การเลือกเมนูอาหารง่ายขึ้นแบบอีซี่ๆ เราใส่ใจทุกกระบวนการเลือกสรร
+            <br />
+            แม้ว่าคุณจะแพ้อาหารประเภทใด ปัญหาสุขภาพแบบไหน
+            <br />
+            วางใจ EazyEat เราคัดสรรอาหารจานพิเศษด้วยใจมาเพื่อคุณ
+            <br />
+            มาทำให้มื้ออาหารของคุณเต็มไปด้วยความสุขที่ดีที่สุดที่ EazyEat
+          </p>
+        </div>
+        <img src="assets\img\pexels-steve-3789885.jpg" className="h-[450px] w-auto drop-shadow-2xl rounded-[20px]" />
       </section>
       <main className="bg-center bg-scroll bg-cover bg-testH2 h-[600px] min-w-full grid justify-items-end px-[4%]">
         <div className="grid grid-cols-3 justify-items-end items-center content-between mx-[1.5%] my-[4%] gap-[30%]">
@@ -83,7 +78,10 @@ const Home = () => {
           </section>
         </div>
       </main>
-      <main className="h-[600px] min-w-full grid justify-items-center p-[2%]">
+      <div className="menu-list max-w-[1440px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-[20px] gap-y-[50px] px-[60px] py-[60px] mt-[32px] mb-[50px] rounded-[20px] bg-white/50 ">
+        {menuRankingList && menuRankingList.map((menu) => <MenuRankingCard key={menu._id} menuRanking={menu} />)}
+      </div>
+      {/* <main className="h-[600px] min-w-full grid justify-items-center p-[2%]">
         <div className="h-[550px] w-auto flex justify-center items-center gap-4 flex-col">
           <h1 className="text-[38px] font-bold text-[#0000000]">POPULAR MENU</h1>
           <div className="flex justify-center gap-10">
@@ -110,7 +108,7 @@ const Home = () => {
             </section>
           </div>
         </div>
-      </main>
+      </main> */}
       <div className="bg-center bg-scroll bg-cover bg-testH3 h-[900px] min-w-full p-5">
         <div className="grid justify-items-center">
           <h3 className="text-[38px] font-bold my-5">GALLERY</h3>

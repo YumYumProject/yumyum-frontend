@@ -45,7 +45,7 @@ const Search = () => {
     <div className="w-full h-full bg-searchBg bg-cover">
       <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
       <div className="w-full h-full backdrop-blur-sm">
-        <div className="max-w-[1440px] mx-auto px-[16px] box-content flex flex-col justify-center items-center gap-y-5">
+        <div className="max-w-[1280px] mx-auto px-[16px] box-content flex flex-col justify-center items-center gap-y-5">
           <div className="form-container w-full h-auto mt-[30px] box-content py-[32px]">
             <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleFilter}>
               <div>
@@ -144,7 +144,7 @@ const Search = () => {
               </div>
               <div className="flex justify-center items-center">
                 <button
-                  className="text-[16px] font-medium px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
+                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] rounded-full text-white drop-shadow-sm bg-[#FF9642] hover:bg-[#7dac59]"
                   type="submit"
                 >
                   ค้นหาเมนู

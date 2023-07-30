@@ -5,7 +5,7 @@ const Navbar = () => {
   const { isLoggedIn, logout } = useAuth()
   return (
     <div className="header w-ful bg-white">
-      <nav className="header-nav max-w-[1440px] h-auto mx-auto px-[16px] pt-[20px] pb-[10px] flex justify-between items-center ">
+      <nav className="header-nav max-w-[1280px] h-auto mx-auto px-[16px] pt-[20px] pb-[10px] flex justify-between items-center ">
         <Link to={'/'}>
           <p className="logo font-bold text-[30px] hover:text-orange drop-shadow-sm">EazyEat</p>
         </Link>
@@ -24,10 +24,7 @@ const Navbar = () => {
                   <p className="hover:text-orange">เข้าสู่ระบบ</p>
                 </Link>
                 <Link to={'/user'}>
-                  <p
-                    className="text-[16px] font-medium px-5 py-2.5 text-white rounded-full drop-shadow-sm hover:text-xl bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
-                        hover:from-[#c1f31f] hover:to-[#4ccf20]"
-                  >
+                  <p className="text-[16px] font-medium px-5 py-2.5 text-white rounded-full drop-shadow-sm bg-[#FF9642] hover:bg-[#7dac59]">
                     สมัครสมาชิก
                   </p>
                 </Link>
@@ -36,6 +33,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      {/* <div className="top-0 box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" /> */}
     </div>
   )
 }
