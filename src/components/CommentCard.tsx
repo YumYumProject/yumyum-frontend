@@ -23,6 +23,7 @@ const CommentCard = ({ comment, contentId }: CommentCardProps) => {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       })
 
