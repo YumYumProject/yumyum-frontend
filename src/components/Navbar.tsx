@@ -6,7 +6,7 @@ const Navbar = () => {
   const { isLoggedIn, logout } = useAuth()
 
   return (
-    <div className="top-0 header w-ful bg-white/90">
+    <div className="top-0 header w-full bg-white/90 box-content ">
       <nav className="header-nav max-w-[1440px] h-auto mx-auto px-[16px] py-[20px] flex justify-between items-center ">
         <Link to={'/'}>
           <p className="logo font-bold text-[40px] hover:text-[#FF8C32] drop-shadow-lg">EazyEat</p>

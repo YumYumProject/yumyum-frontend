@@ -1,5 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import 'react-multi-carousel/lib/styles.css'
+import { Carousel, initTE } from 'tw-elements'
+
+initTE({ Carousel })
 
 const HomeTest = () => {
   const navigate = useNavigate()
@@ -9,13 +13,9 @@ const HomeTest = () => {
     return navigate('/menu')
   }
 
-  // แก้พื้นหลัง หาบีจีฟรีมาใส่แทนให้เหมือนกันทุกหน้า
-  // หน้าโฮมเอารูปอาหารมาเล่น ทำเป็นรูปสไลด์ feel like banner
-  // bg-gradient-to-r from-red-50/50 to-zinc-500/20 rounded-[35px]
-
   return (
     <div>
-      <div className="bg-top bg-scroll bg-cover bg-testH1 h-[600px] min-w-full">
+      <div className="bg-top bg-scroll bg-cover bg-testH1 h-[600px] max-w-[1440px] min-w-full">
         <div className="h-[600px] w-auto grid justify-items-end content-center py-[15%] px-[12%]">
           <header className="grid grid-cols-1 py-[14%] ">
             <h3 className="text-[34px] font-bold">เลือกเมนูตามใจคุณกับ EazyEat</h3>
@@ -24,7 +24,7 @@ const HomeTest = () => {
               type="button"
               onClick={handleClick}
               className="box-border h-[50px] w-[150px] text-white text-[16px] font-bold p-[2px] my-5 rounded-[50px]
-                bg-[#FF9642] hover:bg-[#7dac59] drop-shadow-xl"
+                bg-[#FF9642] hover:bg-[#7dac59] shadow-2xl drop-shadow-2xl"
             >
               เริ่มกันเลย!!
             </button>
@@ -57,7 +57,7 @@ const HomeTest = () => {
         </main>
       </section>
       <main className="bg-center bg-scroll bg-cover bg-testH2 h-[600px] min-w-full grid justify-items-end px-[4%]">
-        <div className="grid grid-cols-3 justify-items-end items-center content-between mx-[1.5%] my-[4%] gap-[30%]">
+        <div className="grid grid-cols-3 justify-items-end items-center content-between mx-[1.5%] my-[4%] gap-10">
           <h1 className="col-span-3 text-[38px] font-bold text-[#ffffff]">เลือกสรรเมนูกับ EazyEat</h1>
           <section className="box-border h-[240px] w-[240px] rounded-[30px] bg-red-50/60 p-10 border-1 grid grid-cols-1 gap-1 justify-items-center content-end">
             <img src="/assets/img/image-home-prepare.png" className="mb-[41px]" />
@@ -113,8 +113,37 @@ const HomeTest = () => {
       <div className="bg-center bg-scroll bg-cover bg-testH3 h-[900px] min-w-full p-5">
         <div className="grid justify-items-center">
           <h3 className="text-[38px] font-bold my-5">GALLERY</h3>
-          <div className="bg-red-50/60 h-[700px] w-[1000px] grid justify-items-center items-center rounded-[30px]">
-            <img src="/assets/img/gallery.jpg" className="h-[550px] w-[760px]" />
+          <div className="bg-[#fcd34d]/20 h-[700px] w-[1000px] flex justify-center content-between items-center gap-8 rounded-[30px]">
+            <div className="relative" data-te-carousel-init data-te-carousel-slide>
+              <div className="relative h-[700px] w-[500px] overflow-hidden after:clear-both after:block after:content-['']">
+                <div
+                  className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                  data-te-carousel-item
+                  data-te-carousel-active
+                >
+                  <img src="/assets/img/pop1.jpg" className="block w-full" />
+                </div>
+                <div
+                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+                  data-te-carousel-item
+                >
+                  <img src="/assets/img/pop2.jpg" className="block w-full" />
+                </div>
+
+                <div
+                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+                  data-te-carousel-item
+                >
+                  <img src="/assets/img/pop3.jpg" className="block w-full" />
+                </div>
+                <div
+                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+                  data-te-carousel-item
+                >
+                  <img src="/assets/img/pop6.jpg" className="block w-full" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

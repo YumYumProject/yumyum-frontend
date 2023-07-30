@@ -25,6 +25,21 @@ const Register = () => {
   // user data must match with backend request
   // need useState, useEffect
 
+  const resetForm = () => {
+    setUsernameInput('')
+    setPasswordInput('')
+    setDisplayNameInput('')
+  }
+
+  function showPassword() {
+    const x: HTMLInputElement = document.getElementById('myInput') as HTMLInputElement
+    if (x.type === 'password') {
+      x.type = 'text'
+    } else {
+      x.type = 'password'
+    }
+  }
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -42,14 +57,14 @@ const Register = () => {
   }
 
   return (
-    <div className="h-[700px] min-w-full bg-center bg-cover bg-registerBg">
+    <div className="h-[700px] max-w-[1440px] min-w-full bg-center bg-cover bg-registerBg">
       <div className="flex justify-center content-center p-[1%]">
-        <div className="bg-gradient-to-r from-red-50/50 to-zinc-500/20 h-[660px] w-[30%] rounded-[35px] grid justify-items-center content-evenly">
-          <header className="grid justify-items-center gap-[5%]">
+        <div className="bg-gradient-to-r from-gray-50/50 to-zinc-500/60 h-[660px] w-[500px] rounded-[35px] grid justify-items-center content-evenly">
+          <header className="grid justify-items-center gap-5">
             <h2 className="text-[30px] font-bold">Register</h2>
             <img src="/assets/img/avartar.jpg" className="h-[150px] w-auto" />
           </header>
-          <form onSubmit={handleSubmit} className="grid justify-items-center grid-cols-1 gap-[7%]">
+          <form onSubmit={handleSubmit} className="grid justify-items-center grid-cols-1 gap-4">
             <div>
               <fieldset>
                 <label>
@@ -79,7 +94,7 @@ const Register = () => {
               </fieldset>
             </div>
             <div>
-              <fieldset>
+              <fieldset className="grid grid-cols-1 gap-4">
                 <label>
                   <p>Password</p>
                   <input
@@ -90,17 +105,35 @@ const Register = () => {
                     required
                   />
                 </label>
+                <label>
+                  <input type="checkbox" onClick={() => showPassword()} id="checkbox" />
+                  Show Password
+                </label>
               </fieldset>
             </div>
-            <button
-              type="submit"
-              value="submit"
-              className="bg-[#FF9642] h-[50px] w-[150px] rounded-[50px] drop-shadow-xl focus:bg-white"
-            >
-              Register
-            </button>
+            <span className="w-[100%] flex content-between justify-center gap-6 my-3">
+              <div>
+                <button
+                  type="reset"
+                  value="Reset"
+                  onClick={() => resetForm()}
+                  className="bg-[#432727] text-[#ffffff] h-[50px] w-[150px] rounded-[50px] drop-shadow-xl focus:bg-[#ff0000]"
+                >
+                  Reset
+                </button>
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  value="Submit"
+                  className="bg-[#FF9642] h-[50px] w-[150px] rounded-[50px] drop-shadow-xl focus:bg-white"
+                >
+                  Register
+                </button>
+              </div>
+            </span>
           </form>
-          <div className="w-[100%] grid justify-items-center p-[2%]">
+          <div className="w-[100%] grid justify-items-center p-1">
             <div className="inline-flex gap-[15px]">
               <p>Already have an account?</p>
               <Link to={'/auth/login'}>
