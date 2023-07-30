@@ -15,6 +15,7 @@ interface IAuthContext {
 interface UserInfo {
   username: string | null
   token: string | null
+  id: string | null
 }
 
 const AuthContext = createContext<IAuthContext | null>(null)
@@ -36,6 +37,7 @@ export function useAuth() {
 
 const token = localStorage.getItem('token')
 const user = localStorage.getItem('username')
+const id = localStorage.getItem('id')
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!localStorage.getItem('token'))
@@ -43,6 +45,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [userInfo, setUserInfo] = useState<UserInfo>({
     username: username,
     token: token,
+    id: id,
   })
 
   const register = async (display_name: string, username: string, password: string) => {
@@ -82,14 +85,16 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
       const newToken = data.token
 
-      const { username } = await retrieveUserData(newToken)
+      const { _id, username } = await retrieveUserData(newToken)
 
       localStorage.setItem('token', newToken)
       localStorage.setItem('user', username)
+      localStorage.setItem('id', _id)
       setIsLoggedIn(true)
       setUserInfo({
         username: username,
         token: newToken,
+        id: _id,
       })
     } catch (err: any) {
       throw new Error(err.message)
@@ -99,16 +104,14 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
+    localStorage.removeItem('id')
     setIsLoggedIn(false)
     setUsername(null)
   }
 
   const isOwnComment = (comment: IComment) => {
-    console.log(comment)
-    return comment.comment_by.user_id === userInfo.username
+    return comment.comment_by.user_id === userInfo.id
   }
-
-  console.log('erere')
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, userInfo, login, logout, register, isOwnComment }}>
