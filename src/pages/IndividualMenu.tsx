@@ -40,26 +40,26 @@ const IndividualMenu = () => {
                 </div>
                 <hr className="w-full border-1 border-orange pb-[20px]" />
               </div>
-              <div className="flex justify-center gx-[20px]">
-                <div className="material w-1/2">
+              <div className="grid grid-cols-2 gap-[90px] overflow-hidden">
+                <div className="material w-full">
                   <p className="font-bold text-[20px]">วัตถุดิบ</p>
                   {content.material.map((material) => (
                     <>
-                      <ul className="list-disc  list-inside text-[16px]">
+                      <ul className="list-disc list-inside text-[16px] pl-[20px]">
                         <li key={material.name}>
-                          {material.name} {material.quantity} {material.unit}
+                          {material.name} {material.quantity} {material.unit}{' '}
                         </li>
                       </ul>
                     </>
                   ))}
                 </div>
-                <div className="method w-1/2">
+                <div className="method w-full">
                   <p className="font-bold text-[20px]">วิธีทำ</p>
                   {content.cooking_step.map((step) => (
                     <>
-                      <ol className="text-[16px]">
+                      <ol className="text-[16px] pl-[20px]">
                         <li key={step.order}>
-                          {step.order}. {step.description}
+                          {step.order}. {step.description}{' '}
                         </li>
                       </ol>
                     </>
@@ -69,7 +69,7 @@ const IndividualMenu = () => {
             </div>
           </div>
 
-          <div className="flex justify-between items-center w-full py-[20px]">
+          <div className="flex justify-between items-center w-full py-[20px] px-[40px]">
             <div>
               <p className="font-bold text-[20px]">คะแนน</p>
               <p className="font-bold text-[16px]">

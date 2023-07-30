@@ -5,6 +5,7 @@ import moment from 'moment'
 import { host } from '../constant'
 import { toast } from 'react-hot-toast/headless'
 import { FaCommentDots } from 'react-icons/fa'
+import { RiDeleteBin5Fill, RiEdit2Fill } from 'react-icons/ri'
 import { useAuth } from '../providers/AuthProviders'
 
 interface CommentCardProps {
@@ -34,7 +35,7 @@ const CommentCard = ({ comment, contentId }: CommentCardProps) => {
 
   return (
     <div>
-      <div className="flex justify-between items-end p-[20px] w-full bg-white/50 rounded-[20px]">
+      <div className="flex justify-between items-end py-[20px] px-[40px] w-full bg-white/50 rounded-[20px]">
         <div className="text-[14px] pr-[30px]">
           <p className="flex gap-[8px]">
             {comment.comment_by.display_name} <FaCommentDots />
@@ -49,15 +50,18 @@ const CommentCard = ({ comment, contentId }: CommentCardProps) => {
           {/* {isOwnComment && isOwnComment(comment!) && ( */}
           <>
             <Link
-              className="text-[14px] font-medium px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
+              className="flex justify-center items-center gap-[6px] text-[14px] font-medium hover:text-orange"
               to={`/menu/${contentId}/edit/${comment._id}`}
             >
-              แก้ไข
+              <RiEdit2Fill className="text-orange" />
+              <p>แก้ไข</p>
             </Link>
+            <p>|</p>
             <button
-              className="text-[14px] font-medium px-5 py-2.5 mb-2 text-white bg-[#FF9642]/95 hover:bg-[#FF8C32] rounded-full drop-shadow-xl"
+              className="flex justify-center items-center gap-[6px] text-[14px] font-medium hover:text-orange"
               onClick={handleDelete}
             >
+              <RiDeleteBin5Fill className="text-orange" />
               ลบ
             </button>
           </>

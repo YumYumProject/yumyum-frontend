@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProviders'
 
 const Navbar = () => {
-  const { isLoggedIn, logout } = useAuth()
+  const { userInfo, isLoggedIn, logout } = useAuth()
   return (
     <div className="header w-ful bg-white">
       <nav className="header-nav max-w-[1440px] h-auto mx-auto px-[16px] pt-[20px] pb-[10px] flex justify-between items-center ">

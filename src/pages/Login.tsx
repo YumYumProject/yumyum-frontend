@@ -1,6 +1,7 @@
-import { FormEvent, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState, FormEvent } from 'react'
 import { useAuth } from '../providers/AuthProviders'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-hot-toast'
 
 const Login = () => {
   const { login } = useAuth()
@@ -11,75 +12,55 @@ const Login = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    // Login completed > automatically to Home page
-
     try {
       await login(usernameInput, passwordInput)
 
       navigate('/')
+      toast.success('Login success!')
     } catch (err) {
       console.log(`${err}.message`)
     }
   }
 
   return (
-    <div className="w-full h-full bg-loginBg bg-cover">
+    <div className="h-[700px] min-w-full bg-center bg-local bg-cover bg-loginBg">
       <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
-      <div className="w-full h-screen backdrop-blur-sm">
-        <div className="box-content max-w-[1440px] mx-auto flex items-center ">
-          <div className="form-container w-full h-auto rounded-[20px] bg-white/50 my-[60px] p-[40px]">
-            <p className="w-full mb-[60px] text-[40px] text-center text-orange">
-              &ldquo; ยินดีต้อนรับกลับเข้าสู่ EazyEat &rdquo;
-            </p>
-            <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleSubmit}>
-              <div>
-                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="username">
-                  ชื่อผู้ใช้:
-                </label>
-                <input
-                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
-                  type="text"
-                  id="username"
-                  value={usernameInput}
-                  onChange={(e) => setUsernameInput(e.target.value)}
-                  placeholder="ชื่อผู้ใช้..."
-                  required
-                />
-              </div>
-              <div>
-                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="password">
-                  รหัสผ่าน:
-                </label>
-                <input
-                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
-                  type="password"
-                  id="password"
-                  value={passwordInput}
-                  onChange={(e) => setPasswordInput(e.target.value)}
-                  placeholder="รหัสผ่าน..."
-                  required
-                />
-              </div>
-              <div>
-                <button
-                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-xl hover:text-xl bg-gradient-to-r from-[#fea622] to-[#d0e03c]  
-                        hover:from-[#c1f31f] hover:to-[#4ccf20]"
-                  type="submit"
-                >
-                  เข้าสู่ระบบ
-                </button>
-              </div>
-            </form>
-            <div className="flex justify-center items-center pt-[30px]">
-              <div className="inline-flex gap-[15px]">
-                <p>คุณยังไม่มีบัญชีใช่ไหม?</p>
-                <Link to={'/user'}>
-                  <button className="text-[#382b98] italic hover:text-orange">สมัครสมาชิก</button>
-                </Link>
-              </div>
+      <div className="h-[700px] flex justify-center items-center">
+        <main className="bg-gradient-to-r from-zinc-50/80 to-zinc-100/70 h-[400px] w-[500px] rounded-[35px] grid justify-items-center py-[4%]">
+          <p className="font-bold text-[30px] text-black">Welcome Back!</p>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-[7%]">
+            <div className="grid grid-cols-1">
+              <label htmlFor="username">Username:</label>
+              <input
+                type="text"
+                value={usernameInput}
+                onChange={(e) => setUsernameInput(e.target.value)}
+                className="h-[32px] w-[400px] rounded-[50px] bg-white/80"
+                required
+              />
             </div>
-          </div>
-        </div>
+            <div className="grid grid-cols-1">
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                value={passwordInput}
+                onChange={(e) => setPasswordInput(e.target.value)}
+                id="password"
+                className="h-[32px] w-[400px] rounded-[50px] bg-white/80"
+                required
+              />
+            </div>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                value="submit"
+                className="bg-[#FF9642] h-[50px] w-[150px] rounded-[50px] drop-shadow-xl focus:bg-white"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+        </main>
       </div>
       <div className="bottom-0 box-content bg-white w-full h-[50px] rounded-t-[100%]" />
     </div>
