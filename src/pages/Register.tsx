@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProviders'
 import { toast } from 'react-toastify'
-import showPassword from '../hooks/showPassword'
+import { BiSolidShow, BiSolidHide } from 'react-icons/bi'
 
 const Register = () => {
   const navigate = useNavigate()
@@ -10,6 +10,11 @@ const Register = () => {
   const [usernameInput, setUsernameInput] = useState<string>('')
   const [passwordInput, setPasswordInput] = useState<string>('')
   const [displayNameInput, setDisplayNameInput] = useState<string>('')
+  const [passwordShown, setPasswordShown] = useState(false)
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown)
+  }
 
   const resetForm = () => {
     setUsernameInput('')
@@ -72,19 +77,18 @@ const Register = () => {
             </div>
             <div>
               <fieldset className="grid grid-cols-1 gap-4">
-                <label>
+                <label className="relative">
                   <p>Password</p>
                   <input
-                    type="password"
+                    type={passwordShown ? 'text' : 'password'}
                     value={passwordInput}
                     onChange={(e) => setPasswordInput(e.target.value)}
-                    className="h-[32px] w-[400px] rounded-[50px] p-[2.5%]"
+                    className=" h-[32px] w-[400px] rounded-[50px] p-[2.5%]"
                     required
                   />
-                </label>
-                <label>
-                  <input type="checkbox" onClick={() => showPassword()} id="checkbox" />
-                  Show Password
+                  <button onClick={togglePassword} className="absolute h-8 right-2 text-3xl">
+                    {!passwordShown ? <BiSolidShow /> : <BiSolidHide />}
+                  </button>
                 </label>
               </fieldset>
             </div>
