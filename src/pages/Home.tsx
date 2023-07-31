@@ -1,15 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useMenuRankingList from '../hooks/useMenuRankingList'
 import 'react-multi-carousel/lib/styles.css'
 import { Carousel, initTE } from 'tw-elements'
 import MenuRankingCard from '../components/MenuRankingCard'
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
+import { RxDotFilled } from 'react-icons/rx'
 
 initTE({ Carousel })
 
 const Home = () => {
   const navigate = useNavigate()
   const { menuRankingList } = useMenuRankingList()
+  const slides = [
+    {
+      url: '/assets/img/pop1.jpg',
+    },
+    {
+      url: '/assets/img/pop2.jpg',
+    },
+    {
+      url: '/assets/img/pop3.jpg',
+    },
+    {
+      url: '/assets/img/pop4.jpg',
+    },
+    {
+      url: '/assets/img/pop5.jpg',
+    },
+    {
+      url: '/assets/img/pop6.jpg',
+    },
+  ]
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0
+    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1
+    setCurrentIndex(newIndex)
+  }
+
+  const nextSlide = () => {
+    const isLastSlide = currentIndex === slides.length - 1
+    const newIndex = isLastSlide ? 0 : currentIndex + 1
+    setCurrentIndex(newIndex)
+  }
+
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex)
+  }
 
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
@@ -85,38 +125,29 @@ const Home = () => {
           {menuRankingList && menuRankingList.map((menu) => <MenuRankingCard key={menu._id} menuRanking={menu} />)}
         </div>
       </div>
-      <div className="bg-center bg-cover bg-testH3 h-[800px] w-full py-[40px]">
-        <div className="max-w-[1280px] box-content px-[16px] flex flex-col justify-center items-center mx-auto">
-          <h3 className="text-[34px] font-bold mb-5">GALLERY</h3>
-          <div className="bg-[#fcd34d]/20 h-full w-full flex justify-center content-between items-center gap-8 rounded-[30px]">
-            <div className="relative" data-te-carousel-init data-te-carousel-slide>
-              <div className="relative h-full w-[500px] overflow-hidden after:clear-both after:block after:content-['']">
-                <div
-                  className="relative float-left mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                  data-te-carousel-item
-                  data-te-carousel-active
-                >
-                  <img src="/assets/img/pop1.jpg" className="block w-full h-[650px] py-[20px]" />
-                </div>
-                <div
-                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
-                  data-te-carousel-item
-                >
-                  <img src="/assets/img/pop2.jpg" className="block w-full" />
-                </div>
-
-                <div
-                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
-                  data-te-carousel-item
-                >
-                  <img src="/assets/img/pop3.jpg" className="block w-full" />
-                </div>
-                <div
-                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
-                  data-te-carousel-item
-                >
-                  <img src="/assets/img/pop6.jpg" className="block w-full" />
-                </div>
+      <div className="bg-center bg-scroll bg-cover bg-testH3 h-[800px] min-w-full p-5">
+        <div className="grid justify-items-center gap-[10px]">
+          <h3 className="text-[38px] font-bold my-5">อัลบั้มรูปภาพ</h3>
+          <div className="h-[600px] w-[1200px] flex justify-center content-between items-center gap-4 rounded-[20%]">
+            <div className="max-w-[1280px] h-[600px] w-full px-4 relative group">
+              <div
+                style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+                className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
+              ></div>
+              {/* Left Arrow */}
+              <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+                <BsChevronCompactLeft onClick={prevSlide} size={30} />
+              </div>
+              {/* Right Arrow */}
+              <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+                <BsChevronCompactRight onClick={nextSlide} size={30} />
+              </div>
+              <div className="flex top-4 justify-center py-2">
+                {slides.map((slide, slideIndex) => (
+                  <div key={slideIndex} onClick={() => goToSlide(slideIndex)} className="text-2xl cursor-pointer">
+                    <RxDotFilled />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
