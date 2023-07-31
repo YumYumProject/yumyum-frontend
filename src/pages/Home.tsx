@@ -47,7 +47,7 @@ const Home = () => {
     setCurrentIndex(newIndex)
   }
 
-  const goToSlide = (slideIndex) => {
+  const goToSlide = (slideIndex: number) => {
     setCurrentIndex(slideIndex)
   }
 
@@ -143,7 +143,7 @@ const Home = () => {
                 <BsChevronCompactRight onClick={nextSlide} size={30} />
               </div>
               <div className="flex top-4 justify-center py-2">
-                {slides.map((slide, slideIndex) => (
+                {slides.map((_, slideIndex) => (
                   <div key={slideIndex} onClick={() => goToSlide(slideIndex)} className="text-2xl cursor-pointer">
                     <RxDotFilled />
                   </div>
