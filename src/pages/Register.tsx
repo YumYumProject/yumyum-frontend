@@ -3,27 +3,12 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProviders'
 import { toast } from 'react-toastify'
 
-/* 
-
-interface IUser extends Document {
-  id: ObjectId;
-  username: string;
-  password: string;
-  display_name: string;
-}
-
-*/
-
 const Register = () => {
   const navigate = useNavigate()
   const { register, login } = useAuth()
   const [usernameInput, setUsernameInput] = useState<string>('')
   const [passwordInput, setPasswordInput] = useState<string>('')
   const [displayNameInput, setDisplayNameInput] = useState<string>('')
-
-  // click to submit, then go to login page
-  // user data must match with backend request
-  // need useState, useEffect
 
   const resetForm = () => {
     setUsernameInput('')

@@ -110,37 +110,60 @@ const HomeTest = () => {
           </div>
         </div>
       </main>
-      <div className="bg-center bg-scroll bg-cover bg-testH3 h-[900px] min-w-full p-5">
+      <div className="bg-center bg-scroll bg-cover bg-testH3 h-[800px] min-w-full p-5">
         <div className="grid justify-items-center">
           <h3 className="text-[38px] font-bold my-5">GALLERY</h3>
-          <div className="bg-[#fcd34d]/20 h-[700px] w-[1000px] flex justify-center content-between items-center gap-8 rounded-[30px]">
-            <div className="relative" data-te-carousel-init data-te-carousel-slide>
-              <div className="relative h-[700px] w-[500px] overflow-hidden after:clear-both after:block after:content-['']">
+          <div className="bg-[#fff5d6]/20 h-[650px] w-[1200px] flex justify-center content-between items-center gap-4 rounded-[20%]">
+            <div id="carouselExampleSlidesOnly" className="relative" data-te-carousel-init data-te-ride="carousel">
+              <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+                {/* First item */}
                 <div
                   className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                   data-te-carousel-item
                   data-te-carousel-active
                 >
-                  <img src="/assets/img/pop1.jpg" className="block w-full" />
+                  <img
+                    // src="https://img.freepik.com/free-photo/basil-minced-pork-with-rice-fried-egg_1150-27369.jpg?w=996&t=st=1690793007~exp=1690793607~hmac=c7dd71fbac22f781cfa97b12816035d41ef290717ba97f097f575758a45fce60"
+                    src="/assets/img/pop1.jpg"
+                    className="block w-full rounded-[20%] h-[600px]"
+                    alt="ไก่ทอด"
+                  />
                 </div>
+                {/* Second item */}
                 <div
-                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                   data-te-carousel-item
                 >
-                  <img src="/assets/img/pop2.jpg" className="block w-full" />
+                  <img
+                    // src="https://img.freepik.com/free-photo/flat-lay-noodles-meal-arrangement_23-2148803834.jpg?w=996&t=st=1690793074~exp=1690793674~hmac=c9e928b79186411e577d9c31812786346a7dccbd7ef21cc6a26108ac32eaf653"
+                    src="/assets/img/pop2.jpg"
+                    className="block w-full rounded-[20%] h-[600px]"
+                    alt="ข้าวกะเพราไข่ดาว"
+                  />
                 </div>
-
+                {/* Third item */}
                 <div
-                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                   data-te-carousel-item
                 >
-                  <img src="/assets/img/pop3.jpg" className="block w-full" />
+                  <img
+                    // src="https://img.freepik.com/free-photo/pieces-chicken-fillet-with-mushrooms-stewed-tomato-sauce-with-boiled-broccoli-rice-proper-nutrition-healthy-lifestyle-dietetic-menu-top-view_2829-20015.jpg?w=996&t=st=1690793158~exp=1690793758~hmac=bc0bb84fa3eb0f89c922a81e16bde9f5e1c83815091ae5be686b0d7f5903d4f0g"
+                    src="/assets/img/pop3.jpg"
+                    className="block w-full rounded-[20%] h-[600px]"
+                    alt="ข้าวเนื้อผัดซอส"
+                  />
                 </div>
+                {/* Fourth item */}
                 <div
-                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[400ms] ease-in-out motion-reduce:transition-none"
+                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
                   data-te-carousel-item
                 >
-                  <img src="/assets/img/pop6.jpg" className="block w-full" />
+                  <img
+                    // src="https://img.freepik.com/free-photo/baked-chicken-wings-with-teriyaki-sauce_2829-19754.jpg?w=996&t=st=1690793175~exp=1690793775~hmac=c78543fc937e836f8e1f623555f16d3c864065a252a18d720cef86696cc85714"
+                    src="/assets/img/pop6.jpg"
+                    className="block w-full rounded-[20%] h-[600px]"
+                    alt="แซลมอนครีมซอส"
+                  />
                 </div>
               </div>
             </div>
