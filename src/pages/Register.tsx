@@ -30,7 +30,7 @@ const Register = () => {
       await login(usernameInput, passwordInput)
 
       navigate('/')
-      toast.success('สมัครสมาชิกเรีบร้อยแล้ว!')
+      toast.success('สมัครสมาชิกเรียบร้อยแล้ว!')
     } catch (err) {
       console.log(`${err}.message`)
     }
