@@ -73,7 +73,7 @@ const Home = () => {
           </header>
         </div>
       </div>
-      <section className="max-w-[1280px] px-[16px] py-[40px] flex justify-between items-center mx-auto overflow-hidden flex-wrap gap-[20px]">
+      <section className="max-w-[1280px] px-[16px] py-[40px] flex justify-around items-center mx-auto overflow-hidden flex-wrap gap-[20px]">
         <div className="flex flex-col gap-[10px] pr-[16px]">
           <p className="text-[34px] font-bold">เกี่ยวกับเรา</p>
           <p className="text-[24px] font-bold">ยินดีต้อนรับเข้าสู่ EazyEat!!</p>
