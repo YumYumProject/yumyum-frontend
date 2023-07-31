@@ -28,11 +28,18 @@ const Search = () => {
       const res = await fetch(
         `${host}/menu?material=${filterMaterial}&process=${filterProcess}&nationality=${filterNationality}&healthy_concern=${filterHealthyConcern}&food_allergen=${filterFoodAllergen}`,
       )
+
       const data = await res.json()
 
       setContentList(data)
 
-      toast.success('เลือกเมนูกันเลย!')
+      if (filterFoodAllergen === filterMaterial) {
+        toast.error('ไม่พบเมนูที่คุณค้นหา')
+      } else if (data.length === 0) {
+        toast.error('ไม่พบเมนูที่คุณค้นหา')
+      } else {
+        toast.success('เลือกเมนูกันเลย!')
+      }
     } catch (err: any) {
       toast.error(err.message)
     }
@@ -153,8 +160,8 @@ const Search = () => {
           </div>
           <hr className="w-full border-1 border-orange" />
           <div className="menu-list max-w-[1280px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-[20px] gap-y-[50px] px-[60px] py-[60px] mt-[32px] mb-[50px] rounded-[20px] bg-white/50 ">
-            {!contentList ? (
-              <p>ไม่พบข้อมูลที่คุณค้นหา</p>
+            {contentList.length === 0 ? (
+              <p className="text-[14px] flex justify-center items-center mx-auto">ไม่พบข้อมูลที่คุณค้นหา</p>
             ) : (
               <>
                 {isLoading ? (

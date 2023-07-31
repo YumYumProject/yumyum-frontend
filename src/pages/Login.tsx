@@ -26,8 +26,8 @@ const Login = () => {
     <div className="w-full h-full bg-loginBg bg-cover">
       <div className="w-full h-[1000px]">
         <div className="box-content max-w-[1280px] mx-auto flex items-center ">
-          <div className="form-container w-full h-auto rounded-[20px] bg-gradient-to-r from-gray-50/50 to-zinc-500/60 my-[60px] p-[40px]">
-            <p className="w-full mb-[40px] text-[40px] text-center text-orange">&ldquo; เข้าสู่ระบบ EazyEat &rdquo;</p>
+          <div className="form-container w-full h-auto rounded-[20px]  backdrop-blur-md bg-gradient-to-r from-gray-50/50 to-zinc-500/60 my-[60px] p-[40px]">
+            <p className="w-full mb-[40px] text-[40px] text-center">&ldquo; เข้าสู่ระบบ EazyEat &rdquo;</p>
             <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleSubmit}>
               <div>
                 <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="username">

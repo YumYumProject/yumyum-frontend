@@ -28,7 +28,7 @@ const IndividualMenu = () => {
             />
             <div className="rounded-[20px] bg-white/50 w-full h-auto px-[60px] pt-[80px] pb-[40px] mt-[610px] flex flex-col items-center">
               <div className="block w-full">
-                <p className="max-h-[180px] font-bold text-[40px] text-orange text-center overflow-hidden leading-[/0px]">
+                <p className="max-h-[180px] font-bold text-[40px] text-orange text-center overflow-hidden leading-[60px]">
                   {content.menu_name}
                 </p>
                 <div className="w-full flex justify-center items-center text-[18px] text-orange gap-[10px] py-[20px]">

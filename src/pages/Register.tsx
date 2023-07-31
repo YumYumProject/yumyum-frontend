@@ -33,11 +33,9 @@ const Register = () => {
   return (
     <div className="w-full h-full bg-registerBg bg-cover">
       <div className="w-full h-[1000px]">
-        <div className="box-content max-w-[1280px] mx-auto flex items-center ">
-          <div className="form-container flex flex-col w-full h-auto rounded-[20px] bg-gradient-to-r from-gray-50/50 to-zinc-500/60 my-[60px] p-[40px]">
-            <p className="w-full mb-[40px] text-[40px] text-center text-orange">
-              &ldquo; สมัครสมาชิกกับ EazyEat &rdquo;
-            </p>
+        <div className="box-content max-w-[1280px] mx-auto flex items-center">
+          <div className="form-container flex flex-col w-full h-auto rounded-[20px] backdrop-blur-md bg-gradient-to-r from-gray-50/50 to-zinc-500/60 my-[60px] p-[40px]">
+            <p className="w-full mb-[40px] text-[40px] text-center">&ldquo; สมัครสมาชิกกับ EazyEat &rdquo;</p>
             <img src="/assets/img/avartar.jpg" className="h-[150px] w-[140px] mx-auto rounded-[20px] mb-[20px]" />
             <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleSubmit}>
               <div>
