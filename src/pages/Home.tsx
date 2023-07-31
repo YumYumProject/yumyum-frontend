@@ -41,7 +41,7 @@ const Home = () => {
         <div className="flex flex-col gap-[10px] pr-[16px]">
           <p className="text-[34px] font-bold">เกี่ยวกับเรา</p>
           <p className="text-[24px] font-bold">ยินดีต้อนรับเข้าสู่ EazyEat!!</p>
-          <p className="text-[18px]">
+          <p className="text-[18px] leading-[30px]">
             หากคุณต้องการ เลือกสรรเมนูที่ชอบ วัตถุดิบที่ใช่ เราช่วยคุณได้
             <br />
             มาทำให้การเลือกเมนูอาหารง่ายขึ้นแบบอีซี่ๆ เราใส่ใจทุกกระบวนการเลือกสรร
@@ -53,12 +53,12 @@ const Home = () => {
             มาทำให้มื้ออาหารของคุณเต็มไปด้วยความสุขที่ดีที่สุดที่ EazyEat
           </p>
         </div>
-        <img src="assets\img\pexels-steve-3789885.jpg" className="h-[450px] w-auto drop-shadow-2xl rounded-[20px]" />
+        <img src="assets\img\pexels-steve-3789885.jpg" className="h-[450px] w-auto rounded-[20px]" />
       </section>
       <div className="bg-top bg-cover bg-testH2  w-full py-[40px]">
         <div className="max-w-[1280px] h-full box-content px-[16px] flex flex-col justify-center items-end mx-auto gap-[160px] overflow-hidden">
           <h1 className="col-span-3 text-[34px] font-bold text-[#ffffff]">เลือกสรรเมนูกับ EazyEat</h1>
-          <div className="flex justify-center items-center gap-[40px] flex-wrap">
+          <div className="flex justify-center items-center gap-[15px] flex-wrap">
             <section className="box-border h-[240px] w-[240px] rounded-[30px] bg-red-50/60 p-10 border-1 grid grid-cols-1 gap-1 content-end">
               <img src="/assets/img/image-home-prepare.png" className="mb-[41px]" />
               <div className="grid justify-items-center">
