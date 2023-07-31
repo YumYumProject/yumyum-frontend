@@ -2,12 +2,23 @@ import { FormEvent, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProviders'
 import { toast } from 'react-hot-toast'
+import { BiSolidShow, BiSolidHide } from 'react-icons/bi'
 
 const Login = () => {
   const { login } = useAuth()
   const navigate = useNavigate()
   const [usernameInput, setUsernameInput] = useState<string>('')
   const [passwordInput, setPasswordInput] = useState<string>('')
+  const [passwordShown, setPasswordShown] = useState(false)
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown)
+  }
+
+  const resetForm = () => {
+    setUsernameInput('')
+    setPasswordInput('')
+  }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -43,23 +54,34 @@ const Login = () => {
                   required
                 />
               </div>
-              <div>
-                <label className="flex gap-2 mb-2 text-[16px] font-medium" htmlFor="password">
+              <div className="grid grid-cols-1 gap-4">
+                <label className="relative grid grid-cols-1 gap-2 mb-2 text-[16px] font-medium" htmlFor="password">
                   รหัสผ่าน:
+                  <input
+                    className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
+                    type={passwordShown ? 'text' : 'password'}
+                    id="password"
+                    value={passwordInput}
+                    onChange={(e) => setPasswordInput(e.target.value)}
+                    placeholder="รหัสผ่าน..."
+                    required
+                  />
+                  <button onClick={togglePassword} className="absolute h-[105px] right-4 text-3xl">
+                    {!passwordShown ? <BiSolidShow /> : <BiSolidHide />}
+                  </button>
                 </label>
-                <input
-                  className="block w-[620px] border border-white/90 bg-white/90 text-[16px] rounded-full focus:ring-[#FFA559] focus:border-[#FFA559] focus:bg-white/90 drop-shadow-lg"
-                  type="password"
-                  id="password"
-                  value={passwordInput}
-                  onChange={(e) => setPasswordInput(e.target.value)}
-                  placeholder="รหัสผ่าน..."
-                  required
-                />
               </div>
-              <div>
+              <div className="flex gap-[20px]">
                 <button
-                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-sm bg-[#FF9642] hover:bg-[#7dac59]"
+                  type="reset"
+                  value="Reset"
+                  onClick={() => resetForm()}
+                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-sm w-[128px] bg-[#432727] hover:bg-[#ff0000]"
+                >
+                  รีเซ็ต
+                </button>
+                <button
+                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-sm w-[128px] bg-[#FF9642] hover:bg-[#7dac59]"
                   type="submit"
                 >
                   เข้าสู่ระบบ
@@ -70,7 +92,7 @@ const Login = () => {
               <div className="inline-flex gap-[15px]">
                 <p>คุณยังไม่มีบัญชีใช่ไหม?</p>
                 <Link to={'/user'}>
-                  <button className="text-orange italic hover:text-[#7dac59]">สมัครสมาชิก</button>
+                  <button className="text-green-600 italic font-bold hover:text-[#7dac59]">สมัครสมาชิก</button>
                 </Link>
               </div>
             </div>
