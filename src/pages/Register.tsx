@@ -2,6 +2,7 @@ import { useState, FormEvent } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProviders'
 import { toast } from 'react-toastify'
+import showPassword from '../hooks/showPassword'
 
 const Register = () => {
   const navigate = useNavigate()
@@ -14,15 +15,6 @@ const Register = () => {
     setUsernameInput('')
     setPasswordInput('')
     setDisplayNameInput('')
-  }
-
-  function showPassword() {
-    const x: HTMLInputElement = document.getElementById('myInput') as HTMLInputElement
-    if (x.type === 'password') {
-      x.type = 'text'
-    } else {
-      x.type = 'password'
-    }
   }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {

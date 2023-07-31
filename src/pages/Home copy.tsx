@@ -1,12 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import 'react-multi-carousel/lib/styles.css'
-import { Carousel, initTE } from 'tw-elements'
-
-initTE({ Carousel })
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
+import { RxDotFilled } from 'react-icons/rx'
 
 const HomeTest = () => {
   const navigate = useNavigate()
+  const slides = [
+    {
+      url: '/assets/img/pop1.jpg',
+    },
+    {
+      url: '/assets/img/pop2.jpg',
+    },
+    {
+      url: '/assets/img/pop3.jpg',
+    },
+    {
+      url: '/assets/img/pop4.jpg',
+    },
+    {
+      url: '/assets/img/pop5.jpg',
+    },
+    {
+      url: '/assets/img/pop6.jpg',
+    },
+  ]
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0
+    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1
+    setCurrentIndex(newIndex)
+  }
+
+  const nextSlide = () => {
+    const isLastSlide = currentIndex === slides.length - 1
+    const newIndex = isLastSlide ? 0 : currentIndex + 1
+    setCurrentIndex(newIndex)
+  }
+
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex)
+  }
 
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
@@ -112,59 +148,27 @@ const HomeTest = () => {
       </main>
       <div className="bg-center bg-scroll bg-cover bg-testH3 h-[800px] min-w-full p-5">
         <div className="grid justify-items-center">
-          <h3 className="text-[38px] font-bold my-5">GALLERY</h3>
-          <div className="bg-[#fff5d6]/20 h-[650px] w-[1200px] flex justify-center content-between items-center gap-4 rounded-[20%]">
-            <div id="carouselExampleSlidesOnly" className="relative" data-te-carousel-init data-te-ride="carousel">
-              <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-                {/* First item */}
-                <div
-                  className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                  data-te-carousel-item
-                  data-te-carousel-active
-                >
-                  <img
-                    // src="https://img.freepik.com/free-photo/basil-minced-pork-with-rice-fried-egg_1150-27369.jpg?w=996&t=st=1690793007~exp=1690793607~hmac=c7dd71fbac22f781cfa97b12816035d41ef290717ba97f097f575758a45fce60"
-                    src="/assets/img/pop1.jpg"
-                    className="block w-full rounded-[20%] h-[600px]"
-                    alt="ไก่ทอด"
-                  />
-                </div>
-                {/* Second item */}
-                <div
-                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                  data-te-carousel-item
-                >
-                  <img
-                    // src="https://img.freepik.com/free-photo/flat-lay-noodles-meal-arrangement_23-2148803834.jpg?w=996&t=st=1690793074~exp=1690793674~hmac=c9e928b79186411e577d9c31812786346a7dccbd7ef21cc6a26108ac32eaf653"
-                    src="/assets/img/pop2.jpg"
-                    className="block w-full rounded-[20%] h-[600px]"
-                    alt="ข้าวกะเพราไข่ดาว"
-                  />
-                </div>
-                {/* Third item */}
-                <div
-                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                  data-te-carousel-item
-                >
-                  <img
-                    // src="https://img.freepik.com/free-photo/pieces-chicken-fillet-with-mushrooms-stewed-tomato-sauce-with-boiled-broccoli-rice-proper-nutrition-healthy-lifestyle-dietetic-menu-top-view_2829-20015.jpg?w=996&t=st=1690793158~exp=1690793758~hmac=bc0bb84fa3eb0f89c922a81e16bde9f5e1c83815091ae5be686b0d7f5903d4f0g"
-                    src="/assets/img/pop3.jpg"
-                    className="block w-full rounded-[20%] h-[600px]"
-                    alt="ข้าวเนื้อผัดซอส"
-                  />
-                </div>
-                {/* Fourth item */}
-                <div
-                  className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                  data-te-carousel-item
-                >
-                  <img
-                    // src="https://img.freepik.com/free-photo/baked-chicken-wings-with-teriyaki-sauce_2829-19754.jpg?w=996&t=st=1690793175~exp=1690793775~hmac=c78543fc937e836f8e1f623555f16d3c864065a252a18d720cef86696cc85714"
-                    src="/assets/img/pop6.jpg"
-                    className="block w-full rounded-[20%] h-[600px]"
-                    alt="แซลมอนครีมซอส"
-                  />
-                </div>
+          <h3 className="text-[38px] font-bold my-5">อัลบั้มรูปภาพ</h3>
+          <div className="h-[600px] w-[1200px] flex justify-center content-between items-center gap-4 rounded-[20%]">
+            <div className="max-w-[1400px] h-[600px] w-full px-4 relative group">
+              <div
+                style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+                className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
+              ></div>
+              {/* Left Arrow */}
+              <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+                <BsChevronCompactLeft onClick={prevSlide} size={30} />
+              </div>
+              {/* Right Arrow */}
+              <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+                <BsChevronCompactRight onClick={nextSlide} size={30} />
+              </div>
+              <div className="flex top-4 justify-center py-2">
+                {slides.map((slide, slideIndex) => (
+                  <div key={slideIndex} onClick={() => goToSlide(slideIndex)} className="text-2xl cursor-pointer">
+                    <RxDotFilled />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
