@@ -16,10 +16,6 @@ const Home = () => {
     return navigate('/menu')
   }
 
-  // แก้พื้นหลัง หาบีจีฟรีมาใส่แทนให้เหมือนกันทุกหน้า
-  // หน้าโฮมเอารูปอาหารมาเล่น ทำเป็นรูปสไลด์ feel like banner
-  // bg-gradient-to-r from-red-50/50 to-zinc-500/20 rounded-[35px]
-
   return (
     <div className="bg-white">
       <div className="bg-top bg-cover bg-testH1 h-[600px] w-full flex justify-center items-center">

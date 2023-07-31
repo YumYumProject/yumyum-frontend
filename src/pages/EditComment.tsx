@@ -56,7 +56,7 @@ const EditComment = () => {
     <div className="w-full h-full bg-editCommentBg bg-cover">
       <div className="w-full h-[1000px] backdrop-blur-sm ">
         <div className="box-content max-w-[1280px] mx-auto flex items-center ">
-          <div className="form-container w-full h-auto rounded-[20px] bg-white/70 my-[60px] p-[40px]">
+          <div className="form-container w-full h-auto rounded-[20px] backdrop-blur-md bg-gradient-to-r from-gray-50/50 to-zinc-500/60 my-[60px] p-[40px]">
             <p className="w-full mb-[40px] text-[40px] text-center">&ldquo; แก้ไขความคิดเห็น &rdquo;</p>
             <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleEdit}>
               <div>
