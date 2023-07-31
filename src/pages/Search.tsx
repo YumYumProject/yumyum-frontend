@@ -43,7 +43,6 @@ const Search = () => {
 
   return (
     <div className="w-full h-full bg-searchBg bg-cover">
-      <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
       <div className="w-full h-full backdrop-blur-sm">
         <div className="max-w-[1280px] mx-auto px-[16px] box-content flex flex-col justify-center items-center gap-y-5">
           <div className="form-container w-full h-auto mt-[30px] box-content py-[32px]">
@@ -153,7 +152,7 @@ const Search = () => {
             </form>
           </div>
           <hr className="w-full border-1 border-orange" />
-          <div className="menu-list max-w-[1440px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-[20px] gap-y-[50px] px-[60px] py-[60px] mt-[32px] mb-[50px] rounded-[20px] bg-white/50 ">
+          <div className="menu-list max-w-[1280px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-[20px] gap-y-[50px] px-[60px] py-[60px] mt-[32px] mb-[50px] rounded-[20px] bg-white/50 ">
             {!contentList ? (
               <p>ไม่พบข้อมูลที่คุณค้นหา</p>
             ) : (
@@ -172,7 +171,6 @@ const Search = () => {
           </div>
         </div>
       </div>
-      <div className="bottom-0 box-content bg-white w-full h-[50px] rounded-t-[100%]" />
     </div>
   )
 }

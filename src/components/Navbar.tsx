@@ -5,7 +5,7 @@ const Navbar = () => {
   const { isLoggedIn, logout } = useAuth()
   return (
     <div className="header w-ful bg-white">
-      <nav className="header-nav max-w-[1280px] h-auto mx-auto px-[16px] pt-[20px] pb-[10px] flex justify-between items-center ">
+      <nav className="header-nav max-w-[1280px] h-auto mx-auto px-[16px] py-[20px] flex justify-between items-center ">
         <Link to={'/'}>
           <p className="logo font-bold text-[30px] hover:text-orange drop-shadow-sm">EazyEat</p>
         </Link>
@@ -33,7 +33,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* <div className="top-0 box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" /> */}
     </div>
   )
 }

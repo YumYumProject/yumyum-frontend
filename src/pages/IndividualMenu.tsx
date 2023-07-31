@@ -18,7 +18,6 @@ const IndividualMenu = () => {
 
   return (
     <div className="w-full h-full bg-individualMenuBg bg-cover">
-      <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
       <div className="w-full h-full backdrop-blur-sm">
         <div className="card max-w-[1280px] mx-auto px-[16px] flex flex-col justify-center items-center">
           <div className="contianer-menu relative box-border w-full h-auto flex justify-center mt-[60px]">
@@ -100,7 +99,6 @@ const IndividualMenu = () => {
           </div>
         </div>
       </div>
-      <div className="bottom-0 box-content bg-white w-full h-[50px] rounded-t-[100%]" />
     </div>
   )
 }

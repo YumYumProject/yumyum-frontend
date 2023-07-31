@@ -24,10 +24,9 @@ const Login = () => {
 
   return (
     <div className="w-full h-full bg-loginBg bg-cover">
-      <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
-      <div className="w-full h-screen backdrop-blur-sm">
+      <div className="w-full h-[1000px]">
         <div className="box-content max-w-[1280px] mx-auto flex items-center ">
-          <div className="form-container w-full h-auto rounded-[20px] bg-white/50 my-[60px] p-[40px]">
+          <div className="form-container w-full h-auto rounded-[20px] bg-gradient-to-r from-gray-50/50 to-zinc-500/60 my-[60px] p-[40px]">
             <p className="w-full mb-[40px] text-[40px] text-center text-orange">&ldquo; เข้าสู่ระบบ EazyEat &rdquo;</p>
             <form className="flex flex-col justify-center items-center gap-5" onSubmit={handleSubmit}>
               <div>
@@ -78,7 +77,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <div className="bottom-0 box-content bg-white w-full h-[50px] rounded-t-[100%]" />
     </div>
   )
 }

@@ -34,8 +34,7 @@ const CreateComment = () => {
 
   return (
     <div className="w-full h-full bg-createCommentBg bg-cover">
-      <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
-      <div className="w-full h-screen backdrop-blur-sm ">
+      <div className="w-full h-[1000px] backdrop-blur-sm ">
         <div className="box-content max-w-[1280px] mx-auto flex items-center ">
           <div className="form-container w-full h-auto rounded-[20px] bg-white/50 my-[60px] p-[40px]">
             <p className="w-full mb-[40px] text-[40px] text-center text-orange">&ldquo; เพิ่มความคิดเห็น &rdquo;</p>
@@ -77,7 +76,6 @@ const CreateComment = () => {
           </div>
         </div>
       </div>
-      <div className="bottom-0 box-content bg-white w-full h-[50px] rounded-t-[100%]" />
     </div>
   )
 }

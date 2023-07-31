@@ -10,6 +10,12 @@ const Register = () => {
   const [passwordInput, setPasswordInput] = useState<string>('')
   const [displayNameInput, setDisplayNameInput] = useState<string>('')
 
+  const resetForm = () => {
+    setUsernameInput('')
+    setPasswordInput('')
+    setDisplayNameInput('')
+  }
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -26,10 +32,9 @@ const Register = () => {
 
   return (
     <div className="w-full h-full bg-registerBg bg-cover">
-      <div className="box-content bg-white w-full h-[50px] rounded-b-[100%] drop-shadow-lg" />
-      <div className="w-full h-screen backdrop-blur-sm">
+      <div className="w-full h-[1000px]">
         <div className="box-content max-w-[1280px] mx-auto flex items-center ">
-          <div className="form-container flex flex-col w-full h-auto rounded-[20px] bg-white/50 my-[60px] p-[40px]">
+          <div className="form-container flex flex-col w-full h-auto rounded-[20px] bg-gradient-to-r from-gray-50/50 to-zinc-500/60 my-[60px] p-[40px]">
             <p className="w-full mb-[40px] text-[40px] text-center text-orange">
               &ldquo; สมัครสมาชิกกับ EazyEat &rdquo;
             </p>
@@ -77,9 +82,18 @@ const Register = () => {
                   required
                 />
               </div>
-              <div>
+              <div className="flex gap-[20px]">
                 <button
-                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-sm bg-[#FF9642] hover:bg-[#7dac59]"
+                  type="reset"
+                  value="Reset"
+                  onClick={() => resetForm()}
+                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-sm w-[128px] bg-[#432727] hover:bg-[#ff0000]"
+                >
+                  รีเซ็ต
+                </button>
+
+                <button
+                  className="text-[16px] font-medium px-5 py-2.5 mt-[20px] text-white rounded-full drop-shadow-sm w-[128px] bg-[#FF9642] hover:bg-[#7dac59]"
                   type="submit"
                 >
                   สมัครสมาชิก
@@ -97,7 +111,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <div className="bottom-0 box-content bg-white w-full h-[50px] rounded-t-[100%]" />
     </div>
   )
 }
