@@ -1,20 +1,30 @@
-import React from 'react'
-import './App.css'
-import Home from './pages/Home'
-import Register from './pages/Register'
+import { Toaster } from 'react-hot-toast'
 import { Route, Routes } from 'react-router-dom'
-import Login from './pages/Login'
+import './App.css'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 import GuardRoute from './guards/GuardRoute'
+import CreateComment from './pages/CreateComment'
+import EditComment from './pages/EditComment'
+import Home from './pages/Home'
+import IndividualMenu from './pages/IndividualMenu'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Search from './pages/Search'
 import { useAuth } from './providers/AuthProviders'
-import MenuList from './pages/Search'
 
 function App() {
   const { isLoggedIn } = useAuth()
 
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
+      <Toaster position="top-center" />
       <Routes>
+        <Route path="/menu" element={<Search />} />
+        <Route path="/menu/:_id" element={<IndividualMenu />} />
+        <Route path="/menu/:_id/create" element={<CreateComment />} />
+        <Route path="/menu/:_id/edit/:comment_id" element={<EditComment />} />
         <Route path="/" element={<Home />} />
         <Route element={<GuardRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/user/" element={<Register />} />
@@ -22,9 +32,8 @@ function App() {
         <Route element={<GuardRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/auth/login" element={<Login />} />
         </Route>
-        <Route path="/menu" element={<MenuList />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
