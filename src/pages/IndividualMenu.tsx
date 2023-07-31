@@ -26,7 +26,7 @@ const IndividualMenu = () => {
               src={content.menu_image_url}
               alt="img-menu"
             />
-            <div className="rounded-[20px] bg-white/50 w-full h-auto px-[60px] pt-[80px] pb-[40px] mt-[610px] flex flex-col items-center">
+            <div className="rounded-[20px] bg-white/70 w-full h-auto px-[60px] pt-[80px] pb-[40px] mt-[610px] flex flex-col items-center">
               <div className="block w-full">
                 <p className="max-h-[180px] font-bold text-[40px] text-orange text-center overflow-hidden leading-[60px]">
                   {content.menu_name}
@@ -94,7 +94,7 @@ const IndividualMenu = () => {
               )}
             </div>
           </div>
-          <div className=" items-center pb-[50px] w-full ">
+          <div className="items-center pb-[50px] w-full ">
             <CommentList comments={content.comment} contentId={content._id} />
           </div>
         </div>

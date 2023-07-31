@@ -24,7 +24,7 @@ const Home = () => {
     <div className="bg-white">
       <div className="bg-top bg-cover bg-testH1 h-[600px] w-full flex justify-center items-center">
         <div className="max-w-[1280px] px-[16px] overflow-hidden flex flex-wrap">
-          <header className="flex flex-col justify-center items-start w-[1280px] pl-[50%] gap-[10px] pr-[16px] ">
+          <header className="flex flex-col justify-center items-start w-[1280px] pl-[58%] gap-[10px] pr-[16px] ">
             <h3 className="text-[34px] font-bold">เลือกเมนูตามใจคุณกับ EazyEat</h3>
             <h3 className="text-[22px]">จากวัตถุดิบในครัว สู่อาหารจานพิเศษที่คัดสรรมาเพื่อคุณ</h3>
             <button

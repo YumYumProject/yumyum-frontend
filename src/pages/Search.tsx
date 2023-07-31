@@ -159,23 +159,25 @@ const Search = () => {
             </form>
           </div>
           <hr className="w-full border-1 border-orange" />
-          <div className="menu-list max-w-[1280px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-[20px] gap-y-[50px] px-[60px] py-[60px] mt-[32px] mb-[50px] rounded-[20px] bg-white/50 ">
-            {contentList.length === 0 ? (
-              <p className="text-[14px] flex justify-center items-center mx-auto">ไม่พบข้อมูลที่คุณค้นหา</p>
-            ) : (
-              <>
-                {isLoading ? (
-                  <p>Loading...</p>
-                ) : (
-                  <>
+          {contentList.length === 0 ? (
+            <div className="max-w-[1280px] h-auto flex justify-center items-center mx-auto box-content gap-x-[20px] gap-y-[50px] px-[60px] py-[60px] mt-[32px] mb-[50px] rounded-[20px] bg-white/50 ">
+              <p className="text-[14px]">ไม่พบเมนูที่คุณค้นหา</p>
+            </div>
+          ) : (
+            <>
+              {isLoading ? (
+                <p>Loading...</p>
+              ) : (
+                <>
+                  <div className="menu-list max-w-[1280px] h-auto grid grid-cols-4 justify-items-center box-content gap-x-[20px] gap-y-[50px] px-[60px] py-[60px] mt-[32px] mb-[50px] rounded-[20px] bg-white/50 ">
                     {contentList.map((menu) => (
                       <MenuCard key={menu._id} menu={menu} />
                     ))}
-                  </>
-                )}
-              </>
-            )}
-          </div>
+                  </div>
+                </>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>

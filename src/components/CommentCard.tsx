@@ -36,7 +36,7 @@ const CommentCard = ({ comment, contentId }: CommentCardProps) => {
 
   return (
     <div>
-      <div className="flex justify-between items-end py-[20px] px-[40px] w-full bg-white/50 rounded-[20px]">
+      <div className="flex justify-between items-end py-[20px] px-[40px] w-full bg-white/70 rounded-[20px]">
         <div className="text-[14px] pr-[30px]">
           <p className="flex gap-[8px]">
             {comment.comment_by.display_name} <FaCommentDots />
