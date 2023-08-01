@@ -6,6 +6,7 @@ COPY . .
 
 RUN npm install -g pnpm
 RUN pnpm install
+ENV VITE_BE_URL="https://api.eazyeat.cleverse.academy"
 RUN pnpm build
 
 # Out dist should be at /app/dist

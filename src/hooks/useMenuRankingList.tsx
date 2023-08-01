@@ -11,7 +11,8 @@ const useMenuRankingList = () => {
     const fetchData = async () => {
       setIsLoading(true)
       try {
-        const res = await fetch(`${host}/`)
+        console.log(host)
+        const res = await fetch(`${host}`)
         const data = await res.json()
 
         setMenuRankingList(data.data)
