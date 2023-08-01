@@ -29,6 +29,8 @@ const Register = () => {
       await register(displayNameInput, usernameInput, passwordInput)
       await login(usernameInput, passwordInput)
 
+      resetForm()
+
       navigate('/')
       toast.success('สมัครสมาชิกเรียบร้อยแล้ว!')
     } catch (err) {
