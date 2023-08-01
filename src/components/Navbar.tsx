@@ -15,9 +15,11 @@ const Navbar = () => {
           </Link>
           <div>
             {isLoggedIn ? (
-              <button onClick={logout} className="hover:text-orange">
-                ออกจากระบบ
-              </button>
+              <Link to={'/'}>
+                <button onClick={logout} className="hover:text-orange">
+                  ออกจากระบบ
+                </button>
+              </Link>
             ) : (
               <div className="flex items-center gap-6">
                 <Link to={'/auth/login'}>
