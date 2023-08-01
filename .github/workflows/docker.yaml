@@ -14,23 +14,6 @@ jobs:
     steps:
       - name: Checking out ${{ github.ref }} ${{ github.sha }}
         uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: latest
-
-      - name: Setup pnpm@latest with Node.js
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-
-      - name: Install app dependencies
-        run: pnpm install
-
-      - name: Build React App
-        run: pnpm build
-
       - name: Setup QEMU for Buildx
         uses: docker/setup-qemu-action@v2
       - name: Setup Docker Buildx
