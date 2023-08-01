@@ -14,4 +14,5 @@ RUN pnpm build
 # NGINX
 FROM nginx:latest
 
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build-stage /app/dist /usr/share/nginx/html
